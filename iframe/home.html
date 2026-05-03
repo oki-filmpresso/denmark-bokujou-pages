@@ -98,13 +98,6 @@
 
   /* ===== ③ 手づくり乳製品 ===== */
   .dairy{background:var(--milk);position:relative}
-  .dairy::before{
-    content:"";position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse 60% 40% at 30% 30%, rgba(255,255,255,.7), transparent 60%),
-      radial-gradient(ellipse 50% 30% at 70% 70%, rgba(255,255,255,.5), transparent 70%);
-    pointer-events:none;z-index:1
-  }
   .dairy .inner{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
   .dairy-intro h2{font-size:clamp(28px,4vw,40px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.4;font-family:"Hiragino Mincho ProN",serif;margin-bottom:14px}
   .dairy-intro h2::after{content:" 🥛";font-size:.7em}
