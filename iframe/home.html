@@ -189,6 +189,54 @@
   .ev-body h3{font-family:"Hiragino Mincho ProN",serif;font-size:15.5px;color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:6px;line-height:1.5}
   .ev-body p{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#6a6a5a;line-height:1.7}
 
+  /* ===== 自動スライダー(共通) ===== */
+  .auto-slider{
+    position:relative;overflow:hidden;
+    margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    padding:8px 0;
+  }
+  .auto-slider::before,.auto-slider::after{
+    content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none
+  }
+  .slider-track{
+    display:flex;gap:20px;width:max-content;
+    animation:slide-left 50s linear infinite;
+    will-change:transform
+  }
+  .auto-slider:hover .slider-track{animation-play-state:paused}
+  @keyframes slide-left{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(calc(-50% - 10px))}
+  }
+  .slide{flex-shrink:0;width:300px}
+  .slide-photo{
+    width:100%;aspect-ratio:4/3;background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 4px 22px rgba(46,115,68,.12);
+    display:flex;align-items:center;justify-content:center;position:relative
+  }
+  .slide-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .slide-photo .ph-label{font-family:"Hiragino Sans",sans-serif;font-size:11px;color:#a6b6a8;letter-spacing:.2em}
+  .slide-caption{
+    text-align:center;margin-top:14px;
+    font-family:"Hiragino Mincho ProN",serif;font-size:15px;
+    color:var(--green-deep);font-weight:700;letter-spacing:.1em;line-height:1.5
+  }
+  .slide-caption small{
+    display:block;font-family:"Hiragino Sans",sans-serif;
+    font-size:11.5px;color:#7a7a6a;letter-spacing:.05em;font-weight:400;margin-top:4px
+  }
+  /* milk bg fade */
+  .dairy .auto-slider::before{left:0;background:linear-gradient(90deg,#fbf5e8 10%,transparent)}
+  .dairy .auto-slider::after{right:0;background:linear-gradient(270deg,#fbf5e8 10%,transparent)}
+  /* mint bg fade */
+  .welfare .auto-slider::before{left:0;background:linear-gradient(90deg,#e1ecda 10%,transparent)}
+  .welfare .auto-slider::after{right:0;background:linear-gradient(270deg,#e1ecda 10%,transparent)}
+
+  @media(max-width:760px){
+    .slide{width:220px}
+    .slide-caption{font-size:13px}
+  }
+
   /* ===== 採用 ===== */
   .recruit{
     background:linear-gradient(180deg,#fdf8eb 0%,#f7e9c8 100%);
@@ -326,100 +374,38 @@
   </div>
 </section>
 
-<!-- ===== ② 牧場での体験 ===== -->
-<section class="experiences">
-  <div class="inner">
-    <div class="sec-head">
-      <div class="sec-head-l">
-        <h2>牧場での体験</h2>
-        <span class="lead">自然の中で、楽しく学び、たくさんの思い出を。</span>
-      </div>
-      <a class="pill-link" href="#">体験一覧を見る <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="exp-grid">
-      <div class="exp-card">
-        <div class="exp-photo"><span class="ph-label">乳しぼり 写真</span></div>
-        <div class="exp-card-body">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6v4l1 3v8a1 1 0 01-1 1H9a1 1 0 01-1-1v-8l1-3z"/></svg></div>
-          <h3>乳しぼり体験</h3>
-          <p>牛さんからミルクをしぼってみよう!</p>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-photo" style="background:#fce4d6"><span class="ph-label">バター 写真</span></div>
-        <div class="exp-card-body">
-          <div class="ico" style="background:#fce4d6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#c87a3e"><circle cx="12" cy="14" r="6"/><path d="M9 8L7 4M15 8l2-4"/></svg></div>
-          <h3>バター作り体験</h3>
-          <p>作りたてのバターはとってもおいしい♪</p>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-photo" style="background:#e6f0e8"><img src="https://static.wixstatic.com/media/633c51_42f4528dcc7a4a26894757dcfda29cf3~mv2.png" alt="羊"></div>
-        <div class="exp-card-body">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="6"/><path d="M9 9c1 1 5 1 6 0M10 14c.5.5 3 .5 4 0"/></svg></div>
-          <h3>動物ふれあい</h3>
-          <p>牛や羊、うさぎたちとやさしくふれあおう。</p>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-photo" style="background:#f5ede0"><span class="ph-label">羊毛クラフト 写真</span></div>
-        <div class="exp-card-body">
-          <div class="ico" style="background:#f5ede0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a87a32"><path d="M5 12c0-4 3-7 7-7s7 3 7 7-3 7-7 7-7-3-7-7z"/><path d="M8 10c1-1 7-1 8 0M8 13c1 1 7 1 8 0"/></svg></div>
-          <h3>羊の毛刈り・<br>羊毛クラフト</h3>
-          <p>ふわふわの羊毛で作品づくり体験!</p>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-photo" style="background:#e6efe2"><span class="ph-label">教育ファーム 写真</span></div>
-        <div class="exp-card-body">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" /><path d="M12 4v16M4 12h16"/></svg></div>
-          <h3>教育ファーム</h3>
-          <p>自然や命の大切さを学ぶプログラム。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-foot">団体や学校の体験学習も受付中! お気軽にご相談ください。</div>
-  </div>
-</section>
-
-<!-- 波: cream → milk -->
+<!-- 波: CTA(cream) → 乳製品(milk) -->
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:var(--cream)"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fbf5e8"/></svg>
 
-<!-- ===== ③ 手づくり乳製品 ===== -->
+<!-- ===== ② 手づくり乳製品 ===== -->
 <section class="dairy">
-  <div class="inner">
-    <div class="dairy-intro">
-      <h2>手づくり乳製品</h2>
-      <p>牧場の新鮮なミルクをたっぷり使った、やさしい味わいの乳製品を心を込めて手づくりしています。</p>
+  <div class="inner" style="display:block;text-align:center">
+    <div class="dairy-intro" style="max-width:680px;margin:0 auto 36px">
+      <h2 style="margin:0 auto 14px">手づくり乳製品</h2>
+      <p style="margin:0 auto 22px">牧場の新鮮なミルクをたっぷり使った、やさしい味わいの乳製品を心を込めて手づくりしています。</p>
       <a class="cart-btn" href="#">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/><path d="M3 3h2l3 12h11l3-9H6"/></svg>
         商品一覧・ご購入はこちら
       </a>
     </div>
+  </div>
 
-    <div class="dairy-grid">
-      <div class="product">
-        <div class="product-img">🥛</div>
-        <h3>ノンホモ牛乳</h3>
-        <p>72℃15秒間のやさしい殺菌</p>
-      </div>
-      <div class="product">
-        <div class="product-img">🥄</div>
-        <h3>ヨーグルト</h3>
-        <p>まろやかでコクのある味わい</p>
-      </div>
-      <div class="product">
-        <div class="product-img">🍦</div>
-        <h3>ソフトクリーム</h3>
-        <p>濃厚なのに後味すっきり</p>
-      </div>
-      <div class="product">
-        <div class="product-img">🍩</div>
-        <h3>牧場ドーナツ</h3>
-        <p>毎日手づくりのやさしい甘さ</p>
-      </div>
+  <div class="auto-slider">
+    <div class="slider-track">
+      <!-- 6 slides — original -->
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 1</span></div><div class="slide-caption">ノンホモ牛乳<small>72℃15秒間のやさしい殺菌</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 2</span></div><div class="slide-caption">ヨーグルト<small>まろやかでコクのある味わい</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 3</span></div><div class="slide-caption">ソフトクリーム<small>濃厚なのに後味すっきり</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 4</span></div><div class="slide-caption">牧場ドーナツ<small>毎日手づくりのやさしい甘さ</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 5</span></div><div class="slide-caption">商品名<small>キャッチコピー</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">商品写真 6</span></div><div class="slide-caption">商品名<small>キャッチコピー</small></div></div>
+      <!-- duplicated for seamless loop -->
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 1</span></div><div class="slide-caption">ノンホモ牛乳<small>72℃15秒間のやさしい殺菌</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 2</span></div><div class="slide-caption">ヨーグルト<small>まろやかでコクのある味わい</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 3</span></div><div class="slide-caption">ソフトクリーム<small>濃厚なのに後味すっきり</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 4</span></div><div class="slide-caption">牧場ドーナツ<small>毎日手づくりのやさしい甘さ</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 5</span></div><div class="slide-caption">商品名<small>キャッチコピー</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">商品写真 6</span></div><div class="slide-caption">商品名<small>キャッチコピー</small></div></div>
     </div>
   </div>
 </section>
@@ -427,41 +413,37 @@
 <!-- 波: milk → mint -->
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:var(--milk)"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#f0f7ea"/></svg>
 
-<!-- ===== ④ 福祉の牧場として ===== -->
+<!-- ===== ③ 福祉の牧場として ===== -->
 <section class="welfare">
-  <div class="inner">
-    <div class="welfare-intro">
-      <h2>福祉の牧場として</h2>
-      <p>人にやさしく、地域にやさしい牧場を目指して。</p>
-      <p>私たちは、社会福祉法人として、地域の皆さまとともに障がいのある方や子ども、高齢者の支援に取り組んでいます。牧場での仕事や体験、ふれあいを通して、一人ひとりがいきいきと輝ける社会をつくります。</p>
+  <div class="inner" style="display:block;text-align:center">
+    <div class="welfare-intro" style="max-width:780px;margin:0 auto 36px">
+      <h2 style="margin:0 auto 14px">福祉の牧場として</h2>
+      <p style="text-align:center">人にやさしく、地域にやさしい牧場を目指して。</p>
+      <p style="text-align:center;margin-top:.5em">私たちは、社会福祉法人として、地域の皆さまとともに障がいのある方や子ども、高齢者の支援に取り組んでいます。牧場での仕事や体験、ふれあいを通して、一人ひとりがいきいきと輝ける社会をつくります。</p>
     </div>
+  </div>
 
-    <div>
-      <div class="welfare-grid">
-        <div class="wcard shogai">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="6" r="2.5"/><path d="M9 12c0-1.5 1.3-3 3-3s3 1.5 3 3v3M7 14l3 3M17 14l-3 3M9 21h6"/></svg></div>
-          <h3>障がい者支援</h3>
-          <p>働く喜びや自立を支え、いきいきとした毎日をサポートします。</p>
-        </div>
-        <div class="wcard jido">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="6" r="2"/><circle cx="15" cy="6" r="2"/><path d="M5 14c0-2 2-3 4-3s4 1 4 3M11 14c0-2 2-3 4-3s4 1 4 3M5 18h14"/></svg></div>
-          <h3>児童福祉</h3>
-          <p>子どもたちの健やかな成長を支える取り組みを行っています。</p>
-        </div>
-        <div class="wcard korei">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="6" r="2.5"/><path d="M10 9v3l-3 6M14 9v3l3 6M9 11h6"/></svg></div>
-          <h3>高齢者福祉</h3>
-          <p>高齢者の生きがいやすらぎにつながる活動を行っています。</p>
-        </div>
-        <div class="wcard shurou">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M9 8V5h6v3M4 13h16"/></svg></div>
-          <h3>就労支援</h3>
-          <p>それぞれの個性や能力を活かせる仕事づくりに取り組んでいます。</p>
-        </div>
-      </div>
-
-      <div class="welfare-foot">牧場の収益は、福祉事業の充実や地域貢献活動に活用しています。</div>
+  <div class="auto-slider">
+    <div class="slider-track">
+      <!-- 6 slides — original -->
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 1</span></div><div class="slide-caption">障がい者支援<small>働く喜びと自立をサポート</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 2</span></div><div class="slide-caption">児童福祉<small>子どもたちの健やかな成長を</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 3</span></div><div class="slide-caption">高齢者福祉<small>やすらぎにつながる活動</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 4</span></div><div class="slide-caption">就労支援<small>個性と能力を活かす仕事づくり</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 5</span></div><div class="slide-caption">地域とのつながり<small>見学・交流イベント</small></div></div>
+      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 6</span></div><div class="slide-caption">ふれあい<small>動物と人、人と人</small></div></div>
+      <!-- duplicated for seamless loop -->
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 1</span></div><div class="slide-caption">障がい者支援<small>働く喜びと自立をサポート</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 2</span></div><div class="slide-caption">児童福祉<small>子どもたちの健やかな成長を</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 3</span></div><div class="slide-caption">高齢者福祉<small>やすらぎにつながる活動</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 4</span></div><div class="slide-caption">就労支援<small>個性と能力を活かす仕事づくり</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 5</span></div><div class="slide-caption">地域とのつながり<small>見学・交流イベント</small></div></div>
+      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 6</span></div><div class="slide-caption">ふれあい<small>動物と人、人と人</small></div></div>
     </div>
+  </div>
+
+  <div class="inner" style="text-align:center;margin-top:36px">
+    <div class="welfare-foot">牧場の収益は、福祉事業の充実や地域貢献活動に活用しています。</div>
   </div>
 </section>
 
@@ -500,54 +482,10 @@
   </div>
 </section>
 
-<!-- 波: recruit(sand) → events(cream-pale) -->
-<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f7e9c8"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="var(--cream-pale)"/></svg>
+<!-- 波: recruit(sand) → アクセス(cream) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f7e9c8"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="var(--cream)"/></svg>
 
-<!-- ===== ⑥ 季節のイベント ===== -->
-<section class="events">
-  <div class="inner">
-    <div class="sec-head">
-      <div class="sec-head-l">
-        <h2>季節のイベント</h2>
-        <span class="lead">四季を通して、楽しいイベントを開催しています。</span>
-      </div>
-      <a class="pill-link" href="#">イベントカレンダーを見る <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="events-grid">
-      <div class="ev-card spring">
-        <div class="ev-photo"><span class="ev-badge">春</span><span class="ph-label">春 写真</span></div>
-        <div class="ev-body">
-          <h3>新緑と動物たち</h3>
-          <p>春のふれあいイベント</p>
-        </div>
-      </div>
-      <div class="ev-card summer">
-        <div class="ev-photo"><span class="ev-badge">夏</span><span class="ph-label">夏 写真</span></div>
-        <div class="ev-body">
-          <h3>牧場の夏まつり</h3>
-          <p>体験イベントがいっぱい!</p>
-        </div>
-      </div>
-      <div class="ev-card autumn">
-        <div class="ev-photo"><span class="ev-badge">秋</span><span class="ph-label">秋 写真</span></div>
-        <div class="ev-body">
-          <h3>収穫祭</h3>
-          <p>味覚と体験を楽しもう!</p>
-        </div>
-      </div>
-      <div class="ev-card winter">
-        <div class="ev-photo"><span class="ev-badge">冬</span><span class="ph-label">冬 写真</span></div>
-        <div class="ev-body">
-          <h3>クリスマス会・地域交流</h3>
-          <p>あたたかなつながりを大切に。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ⑥ アクセス + FAQ ===== -->
+<!-- ===== ⑤ アクセス + FAQ ===== -->
 <section class="access-faq" id="access">
   <div class="row">
     <div class="ac-card">
