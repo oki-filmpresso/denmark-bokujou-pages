@@ -717,14 +717,13 @@
   }
   // initial sync apply (rAF is paused while document.hidden)
   frame(performance.now());
-  // fallback for hidden tabs (rAF doesn't fire) — keeps state fresh on resize/font-load
+  raf = requestAnimationFrame(frame);
+  // fallback for hidden tabs/iframes — rAF doesn't fire, but slider should still move
   setInterval(() => {
     if(document.hidden){
-      lastT = performance.now();  // skip ahead, don't accumulate movement while hidden
-      // re-measure in case sizes changed while hidden
-      measure();
+      frame(performance.now());
     }
-  }, 200);
+  }, 50);
 })();
 </script>
 </body>
