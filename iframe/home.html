@@ -223,15 +223,13 @@
   }
   .slider-track{
     display:flex;gap:60px;width:max-content;
-    animation:slide-left 50s linear infinite;
     will-change:transform;
-    padding:30px 0
+    padding:30px 0;
+    user-select:none;-webkit-user-select:none
   }
-  .auto-slider:hover .slider-track{animation-play-state:paused}
-  @keyframes slide-left{
-    0%{transform:translateX(0)}
-    100%{transform:translateX(calc(-50% - 30px))}
-  }
+  .auto-slider{cursor:grab}
+  .auto-slider.dragging{cursor:grabbing}
+  .auto-slider.dragging *{pointer-events:none}
   .slide{flex-shrink:0;width:300px;text-decoration:none;color:inherit;display:block;transition:transform .35s ease,opacity .35s ease;transform-origin:center center;opacity:.55}
   a.slide:hover{transform:translateY(-4px)}
   a.slide:hover .slide-photo{box-shadow:0 12px 32px rgba(46,115,68,.2)}
@@ -591,46 +589,142 @@
 
 <script src="_resize.js"></script>
 <script>
-/* ===== Center-zoom slider ===== */
+/* ===== Auto-slider (unified): consistent speed, drag-to-fast-forward, center-zoom ===== */
 (function(){
-  const sliders = document.querySelectorAll('.auto-slider.center-zoom');
-  if(!sliders.length) return;
+  const PX_PER_SEC = 70;       // 統一スクロール速度
   const MIN_SCALE = 0.78, MAX_SCALE = 1.18;
   const MIN_OPACITY = 0.45;
-  let raf = null;
-  function update(){
-    sliders.forEach(slider => {
-      const rect = slider.getBoundingClientRect();
-      if(rect.width <= 0) return;
-      const center = rect.left + rect.width / 2;
-      const peakRange = rect.width * 0.08;
-      const fadeRange = rect.width * 0.42;
-      const slides = slider.querySelectorAll('.slide');
-      slides.forEach(slide => {
-        const sr = slide.getBoundingClientRect();
-        const slideCenter = sr.left + sr.width / 2;
-        const dist = Math.abs(center - slideCenter);
-        let prox;
-        if(dist <= peakRange){ prox = 1; }
-        else if(dist >= fadeRange){ prox = 0; }
-        else { prox = 1 - (dist - peakRange) / (fadeRange - peakRange); }
-        const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * prox;
-        const op = MIN_OPACITY + (1 - MIN_OPACITY) * prox;
-        slide.style.transform = 'scale(' + scale.toFixed(3) + ')';
-        slide.style.opacity = op.toFixed(3);
-      });
-    });
-    raf = requestAnimationFrame(update);
-  }
-  // initial sync apply (in case page starts hidden — rAF won't fire then)
-  update();
-  // fallback interval for environments where rAF is throttled (parent iframe hidden etc.)
-  setInterval(() => { if(document.hidden) update(); }, 100);
-  // pause when iframe not visible
-  document.addEventListener('visibilitychange', () => {
-    if(document.hidden){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
-    else if(!raf){ raf = requestAnimationFrame(update); }
+  const DRAG_THRESHOLD = 4;    // px - クリックとドラッグの判別
+
+  const sliders = document.querySelectorAll('.auto-slider');
+  if(!sliders.length) return;
+
+  const states = Array.from(sliders).map(slider => {
+    const track = slider.querySelector('.slider-track');
+    const slides = Array.from(track.children);
+    return {
+      slider, track, slides,
+      isCenterZoom: slider.classList.contains('center-zoom'),
+      translateX: 0,
+      slideStep: 0,
+      halfWidth: 0,
+      hovering: false,
+      dragging: false,
+      dragStartX: 0,
+      dragStartTranslate: 0,
+      dragMoved: false,
+      pointerId: null
+    };
   });
+
+  function measure(){
+    states.forEach(s => {
+      if(!s.slides[0]) return;
+      const trackStyle = getComputedStyle(s.track);
+      const gap = parseFloat(trackStyle.gap) || 0;
+      s.slideStep = s.slides[0].offsetWidth + gap;
+      s.halfWidth = s.slideStep * (s.slides.length / 2);
+    });
+  }
+  measure();
+  window.addEventListener('resize', measure);
+  setTimeout(measure, 500);
+  setTimeout(measure, 1500);
+
+  // hover -> pause
+  states.forEach(s => {
+    s.slider.addEventListener('mouseenter', () => { s.hovering = true; });
+    s.slider.addEventListener('mouseleave', () => { s.hovering = false; });
+  });
+
+  // drag (pointer events: mouse + touch)
+  states.forEach(s => {
+    s.slider.addEventListener('pointerdown', e => {
+      if(e.button !== undefined && e.button !== 0) return;
+      s.dragging = true;
+      s.dragMoved = false;
+      s.dragStartX = e.clientX;
+      s.dragStartTranslate = s.translateX;
+      s.pointerId = e.pointerId;
+      try { s.slider.setPointerCapture(e.pointerId); } catch(_) {}
+      s.slider.classList.add('dragging');
+    });
+    s.slider.addEventListener('pointermove', e => {
+      if(!s.dragging) return;
+      const delta = e.clientX - s.dragStartX;
+      if(Math.abs(delta) > DRAG_THRESHOLD) s.dragMoved = true;
+      s.translateX = s.dragStartTranslate + delta;
+    });
+    const endDrag = () => {
+      if(!s.dragging) return;
+      s.dragging = false;
+      s.slider.classList.remove('dragging');
+      try { s.slider.releasePointerCapture(s.pointerId); } catch(_) {}
+    };
+    s.slider.addEventListener('pointerup', endDrag);
+    s.slider.addEventListener('pointercancel', endDrag);
+    // suppress click that originated from a drag (so links don't fire after drag)
+    s.slider.addEventListener('click', e => {
+      if(s.dragMoved){
+        e.preventDefault();
+        e.stopPropagation();
+        s.dragMoved = false;
+      }
+    }, true);
+  });
+
+  // unified animation loop
+  let lastT = performance.now();
+  let raf = null;
+  function frame(t){
+    const dt = Math.min(0.1, (t - lastT) / 1000);
+    lastT = t;
+
+    states.forEach(s => {
+      if(!s.dragging && !s.hovering){
+        s.translateX -= PX_PER_SEC * dt;
+      }
+      if(s.halfWidth > 0){
+        while(s.translateX <= -s.halfWidth) s.translateX += s.halfWidth;
+        while(s.translateX > 0) s.translateX -= s.halfWidth;
+      }
+      s.track.style.transform = 'translateX(' + s.translateX.toFixed(2) + 'px)';
+
+      if(s.isCenterZoom){
+        const rect = s.slider.getBoundingClientRect();
+        if(rect.width > 0){
+          const center = rect.left + rect.width / 2;
+          const peakRange = rect.width * 0.08;
+          const fadeRange = rect.width * 0.42;
+          s.slides.forEach(slide => {
+            const sr = slide.getBoundingClientRect();
+            const slideCenter = sr.left + sr.width / 2;
+            const dist = Math.abs(center - slideCenter);
+            let prox;
+            if(dist <= peakRange) prox = 1;
+            else if(dist >= fadeRange) prox = 0;
+            else prox = 1 - (dist - peakRange) / (fadeRange - peakRange);
+            const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * prox;
+            const op = MIN_OPACITY + (1 - MIN_OPACITY) * prox;
+            slide.style.transform = 'scale(' + scale.toFixed(3) + ')';
+            slide.style.opacity = op.toFixed(3);
+          });
+        }
+      }
+    });
+
+    raf = requestAnimationFrame(frame);
+  }
+  // initial sync apply (rAF is paused while document.hidden)
+  frame(performance.now());
+  // fallback for hidden tabs (rAF doesn't fire) — keeps state fresh on resize/font-load
+  setInterval(() => {
+    if(document.hidden){
+      lastT = performance.now();  // skip ahead, don't accumulate movement while hidden
+      // re-measure in case sizes changed while hidden
+      measure();
+    }
+  }, 200);
 })();
 </script>
 </body>
