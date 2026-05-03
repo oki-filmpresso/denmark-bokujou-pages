@@ -13,7 +13,7 @@ GitHub Pages で公開、`main` ブランチに push すると自動配信され
 
 | ファイル | 用途 | iframe URL(末尾) |
 |---|---|---|
-| `iframe/denmark-bokujo.html` | 法人概要(/policy) | `iframe/denmark-bokujo.html` |
+| `iframe/denmark-bokujo.html` | 法人概要(/policy) ＆ 概要(概要・沿革・財務状況ページ内)兼用 | `iframe/denmark-bokujo.html` |
 | `iframe/denmark-enkaku.html` | 概要・沿革・財務状況 | `iframe/denmark-enkaku.html` |
 | `iframe/denmark-privacy.html` | 個人情報保護方針 | `iframe/denmark-privacy.html` |
 | `iframe/ibuki-rich.html` | 就労支援いぶき(リッチ版) | `iframe/ibuki-rich.html` |
