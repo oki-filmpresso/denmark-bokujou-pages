@@ -24,6 +24,7 @@ GitHub Pages で公開、`main` ブランチに push すると自動配信され
 | `iframe/kodomo-support.html` | こども家庭サポートセンター(だいち/わかば/たより) | `iframe/kodomo-support.html` |
 | `iframe/makibanoie.html` | 児童養護施設 まきばの家 | `iframe/makibanoie.html` |
 | `iframe/houjin-annai.html` | 法人案内(理念・ビジョン・Credo・理事長挨拶・アクセス) | `iframe/houjin-annai.html` |
+| `iframe/home.html` | ホーム(HEROより下:CTA/体験/乳製品/福祉/イベント/アクセス&FAQ) | `iframe/home.html` |
 
 ## 更新フロー
 

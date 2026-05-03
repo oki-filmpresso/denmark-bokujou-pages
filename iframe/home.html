@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>デンマーク牧場 - 自然と命とやさしさに出会う場所</title>
+<style>
+  :root{
+    --ink:#343830;
+    --green-deep:#2e7344;
+    --green:#558d60;
+    --green-soft:#9bbe98;
+    --green-pale:#eaf3ed;
+    --cream:#fffbf0;
+    --cream-warm:#fbf2dd;
+    --cream-pale:#fdf8eb;
+    --sand:#f0e3c3;
+    --accent:#d49a4d;
+    --accent-soft:#f6cf9b;
+    --rose:#e88aa0;
+    --rose-soft:#fce4e9;
+    --sky:#7eb6d6;
+    --sky-soft:#e6f0f7;
+    --milk:#fbf5e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95;letter-spacing:.05em}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  section{position:relative;padding:96px 24px;overflow:hidden}
+  .inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+  .wave{display:block;width:100%;height:64px}
+
+  /* ===== ① 3つのCTAボタン ===== */
+  .quick-cta{padding:56px 24px;background:var(--cream)}
+  .quick-cta .row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:920px;margin:0 auto}
+  .qc{
+    display:flex;align-items:center;gap:14px;padding:22px 26px;border-radius:16px;
+    color:#fff;text-decoration:none;
+    box-shadow:0 6px 22px rgba(46,115,68,.18);transition:transform .25s,box-shadow .25s;
+    font-family:"Hiragino Sans",sans-serif
+  }
+  .qc:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(46,115,68,.24)}
+  .qc.green{background:linear-gradient(135deg,#3a8852,#2e7344)}
+  .qc.orange{background:linear-gradient(135deg,#dca25c,#c08438)}
+  .qc.green2{background:linear-gradient(135deg,#558d60,#3f6e4a)}
+  .qc-ico{
+    width:50px;height:50px;border-radius:14px;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0
+  }
+  .qc-ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .qc-text{font-size:16px;font-weight:700;letter-spacing:.12em;line-height:1.4}
+
+  /* ===== セクション見出し共通 ===== */
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+  .sec-head-l{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.4;font-family:"Hiragino Mincho ProN",serif}
+  .sec-head .lead{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:#6a6a5a;letter-spacing:.1em;padding-bottom:8px}
+  .pill-link{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 22px;border-radius:999px;border:1.5px solid var(--green-deep);
+    color:var(--green-deep);font-family:"Hiragino Sans",sans-serif;font-size:13px;
+    font-weight:700;letter-spacing:.12em;transition:all .25s;background:#fff
+  }
+  .pill-link:hover{background:var(--green-deep);color:#fff}
+  .pill-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+  /* ===== ② 牧場での体験 ===== */
+  .experiences{background:var(--cream)}
+  .exp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .exp-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    box-shadow:0 4px 18px rgba(46,115,68,.08);transition:transform .25s,box-shadow .25s
+  }
+  .exp-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(46,115,68,.14)}
+  .exp-photo{
+    aspect-ratio:1/1;background:var(--green-pale);
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden
+  }
+  .exp-photo .ph-label{font-family:"Hiragino Sans",sans-serif;font-size:11px;color:#a6b6a8;letter-spacing:.2em}
+  .exp-photo img{width:100%;height:100%;object-fit:cover}
+  .exp-card-body{padding:18px 18px 22px;text-align:center}
+  .exp-card-body .ico{
+    width:38px;height:38px;border-radius:50%;background:var(--green-pale);
+    display:flex;align-items:center;justify-content:center;margin:-32px auto 12px;
+    border:3px solid #fff;position:relative;z-index:2
+  }
+  .exp-card-body .ico svg{width:18px;height:18px;color:var(--green-deep)}
+  .exp-card-body h3{font-family:"Hiragino Mincho ProN",serif;font-size:16px;color:var(--green-deep);letter-spacing:.08em;font-weight:700;margin-bottom:8px;line-height:1.5}
+  .exp-card-body p{font-family:"Hiragino Sans",sans-serif;font-size:12.5px;color:#5a5a4a;line-height:1.75}
+  .exp-foot{text-align:center;margin-top:32px;font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#666;letter-spacing:.1em}
+  .exp-foot::before{content:"🌿 "}
+
+  /* ===== ③ 手づくり乳製品 ===== */
+  .dairy{background:var(--milk);position:relative}
+  .dairy::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 40% at 30% 30%, rgba(255,255,255,.7), transparent 60%),
+      radial-gradient(ellipse 50% 30% at 70% 70%, rgba(255,255,255,.5), transparent 70%);
+    pointer-events:none;z-index:1
+  }
+  .dairy::after{
+    content:"";position:absolute;top:5%;right:3%;width:120px;height:240px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 160'><path d='M40 5 Q35 25 30 35 T25 80 Q20 130 30 155 H50 Q60 130 55 80 T50 35 Q45 25 40 5 Z' fill='%239bbe98' opacity='.4'/></svg>") no-repeat center/contain;
+    pointer-events:none;z-index:1;transform:rotate(15deg)
+  }
+  .dairy .inner{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
+  .dairy-intro h2{font-size:clamp(28px,4vw,40px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.4;font-family:"Hiragino Mincho ProN",serif;margin-bottom:14px}
+  .dairy-intro h2::after{content:" 🥛";font-size:.7em}
+  .dairy-intro p{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:#5a5a4a;line-height:1.95;margin-bottom:24px}
+  .dairy-intro .cart-btn{
+    display:inline-flex;align-items:center;gap:10px;background:var(--green-deep);color:#fff;
+    padding:13px 26px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:13px;
+    font-weight:700;letter-spacing:.12em;transition:background .25s
+  }
+  .dairy-intro .cart-btn:hover{background:#245a36}
+  .dairy-intro .cart-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  .dairy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .product{text-align:center}
+  .product-img{
+    aspect-ratio:1/1;background:#fff;border-radius:16px;
+    display:flex;align-items:center;justify-content:center;font-size:64px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);margin-bottom:14px;position:relative
+  }
+  .product h3{font-family:"Hiragino Mincho ProN",serif;font-size:15px;color:var(--green-deep);font-weight:700;letter-spacing:.1em;margin-bottom:6px}
+  .product p{font-family:"Hiragino Sans",sans-serif;font-size:11.5px;color:#7a7a6a;letter-spacing:.05em;line-height:1.6}
+
+  /* ===== ④ 福祉の牧場として ===== */
+  .welfare{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%);position:relative}
+  .welfare::before{
+    content:"";position:absolute;left:5%;top:55%;width:130px;height:130px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='30' y='40' width='40' height='35' fill='%23fff' opacity='.7'/><polygon points='25,40 75,40 50,15' fill='%23d4a874' opacity='.7'/><rect x='42' y='55' width='8' height='14' fill='%239bbe98'/><circle cx='75' cy='25' r='8' fill='%239bbe98' opacity='.6'/><line x1='75' y1='10' x2='75' y2='40' stroke='%239bbe98' stroke-width='1.5' opacity='.5'/></svg>") no-repeat center/contain;
+    z-index:1;pointer-events:none
+  }
+  .welfare .inner{display:grid;grid-template-columns:280px 1fr;gap:60px;align-items:center}
+  .welfare-intro h2{font-size:clamp(26px,3.6vw,34px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.45;font-family:"Hiragino Mincho ProN",serif;margin-bottom:18px}
+  .welfare-intro p{font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#4a4a3a;line-height:2.05;margin-bottom:.6em}
+  .welfare-intro p:last-child{margin-bottom:0}
+
+  .welfare-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .wcard{background:#fff;border-radius:16px;padding:22px 14px;text-align:center;box-shadow:0 4px 18px rgba(46,115,68,.08)}
+  .wcard .ico{
+    width:54px;height:54px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 12px
+  }
+  .wcard .ico svg{width:26px;height:26px;color:#fff}
+  .wcard h3{font-family:"Hiragino Mincho ProN",serif;font-size:14.5px;letter-spacing:.1em;font-weight:700;margin-bottom:10px;line-height:1.5}
+  .wcard p{font-family:"Hiragino Sans",sans-serif;font-size:11.5px;color:#5a5a4a;line-height:1.7}
+  .wcard.shogai .ico{background:var(--green-soft)} .wcard.shogai h3{color:var(--green-deep)}
+  .wcard.jido .ico{background:var(--rose)} .wcard.jido h3{color:#c46877}
+  .wcard.korei .ico{background:var(--sky)} .wcard.korei h3{color:#5a92b3}
+  .wcard.shurou .ico{background:var(--accent)} .wcard.shurou h3{color:#a87a32}
+
+  .welfare-foot{
+    grid-column:1/-1;text-align:center;margin-top:28px;padding-top:20px;border-top:1px dashed rgba(46,115,68,.3);
+    font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#5a5a4a;letter-spacing:.08em
+  }
+  .welfare-foot::before{content:"🌸 "}
+
+  /* ===== ⑤ 季節のイベント ===== */
+  .events{background:var(--cream-pale)}
+  .events-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ev-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    box-shadow:0 4px 18px rgba(46,115,68,.08);transition:transform .25s,box-shadow .25s
+  }
+  .ev-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(46,115,68,.14)}
+  .ev-photo{aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ev-photo .ph-label{font-family:"Hiragino Sans",sans-serif;font-size:11px;color:rgba(255,255,255,.85);letter-spacing:.2em}
+  .ev-card.spring .ev-photo{background:linear-gradient(135deg,#a4d49b,#5fa15a)}
+  .ev-card.summer .ev-photo{background:linear-gradient(135deg,#7ec5e0,#4a8aa8)}
+  .ev-card.autumn .ev-photo{background:linear-gradient(135deg,#e2a653,#b87a2a)}
+  .ev-card.winter .ev-photo{background:linear-gradient(135deg,#a89bce,#6c5ea3)}
+  .ev-badge{
+    position:absolute;top:12px;left:12px;width:48px;height:48px;border-radius:50%;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:"Hiragino Mincho ProN",serif;font-size:18px;font-weight:700;
+    box-shadow:0 3px 10px rgba(0,0,0,.15)
+  }
+  .ev-card.spring .ev-badge{color:#5fa15a}
+  .ev-card.summer .ev-badge{color:#4a8aa8}
+  .ev-card.autumn .ev-badge{color:#b87a2a}
+  .ev-card.winter .ev-badge{color:#6c5ea3}
+  .ev-body{padding:18px 18px 22px;text-align:center}
+  .ev-body h3{font-family:"Hiragino Mincho ProN",serif;font-size:15.5px;color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:6px;line-height:1.5}
+  .ev-body p{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#6a6a5a;line-height:1.7}
+
+  /* ===== ⑥ アクセス + FAQ ===== */
+  .access-faq{background:var(--cream);padding:80px 24px}
+  .access-faq .row{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto}
+
+  .ac-card,.faq-card{background:#fff;border-radius:18px;padding:32px 32px;box-shadow:0 4px 18px rgba(46,115,68,.08)}
+  .ac-card h3,.faq-card h3{font-family:"Hiragino Mincho ProN",serif;font-size:22px;color:var(--green-deep);letter-spacing:.14em;font-weight:700;margin-bottom:22px;line-height:1.4}
+  .ac-row{display:grid;grid-template-columns:30px 1fr;gap:14px;margin-bottom:18px;align-items:start}
+  .ac-row svg{width:20px;height:20px;color:var(--green-deep);margin-top:4px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .ac-row .label{font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#3a3a32;line-height:1.85}
+  .ac-row .label b{color:var(--green-deep);font-weight:700}
+  .ac-mini{
+    margin-top:18px;background:var(--cream-pale);border-radius:12px;
+    padding:18px;display:flex;align-items:center;justify-content:center;
+    font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#a6b6a8;letter-spacing:.15em;
+    aspect-ratio:5/2;border:1px dashed #d8d3c5
+  }
+  .ac-card .pill-link{margin-top:18px}
+
+  .faq-list{display:flex;flex-direction:column;gap:10px}
+  .faq-item{
+    border:1px solid #e3dccb;border-radius:10px;padding:14px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#3a3a32;
+    transition:background .2s
+  }
+  .faq-item:hover{background:var(--cream-pale)}
+  .faq-item .q::before{content:"Q. ";color:var(--green-deep);font-weight:700;letter-spacing:.1em}
+  .faq-item svg{width:14px;height:14px;color:var(--green-deep);flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2}
+
+  .faq-deco{
+    text-align:right;margin-top:18px;font-size:32px;line-height:1;letter-spacing:.5em
+  }
+
+  /* ===== Responsive ===== */
+  @media(max-width:980px){
+    .exp-grid{grid-template-columns:repeat(2,1fr)}
+    .exp-grid .exp-card:nth-child(5){grid-column:1/-1;max-width:50%;margin:0 auto}
+    .dairy .inner,.welfare .inner{grid-template-columns:1fr;gap:32px}
+    .dairy-grid,.welfare-grid{grid-template-columns:repeat(2,1fr)}
+    .events-grid{grid-template-columns:repeat(2,1fr)}
+    .access-faq .row{grid-template-columns:1fr}
+  }
+  @media(max-width:760px){
+    section{padding:60px 20px}
+    .quick-cta{padding:40px 20px}
+    .quick-cta .row{grid-template-columns:1fr}
+    .qc{padding:18px 20px}
+    .qc-ico{width:44px;height:44px}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+    .sec-head-l{align-items:flex-start;gap:8px}
+    .exp-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .exp-grid .exp-card:nth-child(5){max-width:100%}
+    .dairy-grid,.welfare-grid,.events-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .ac-card,.faq-card{padding:24px 22px}
+    .wave{height:40px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== ① 3つのCTAボタン ===== -->
+<section class="quick-cta">
+  <div class="row">
+    <a class="qc green" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener">
+      <span class="qc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M8 14l3 3 5-6"/></svg></span>
+      <span class="qc-text">牧場体験を<br>予約する</span>
+    </a>
+    <a class="qc orange" href="#" target="_blank" rel="noopener">
+      <span class="qc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M3 9v11a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 14h6"/></svg></span>
+      <span class="qc-text">売店営業<br>カレンダー</span>
+    </a>
+    <a class="qc green2" href="#access" rel="noopener">
+      <span class="qc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <span class="qc-text">アクセス・<br>駐車場案内</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== ② 牧場での体験 ===== -->
+<section class="experiences">
+  <div class="inner">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <h2>牧場での体験</h2>
+        <span class="lead">自然の中で、楽しく学び、たくさんの思い出を。</span>
+      </div>
+      <a class="pill-link" href="#">体験一覧を見る <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-photo"><span class="ph-label">乳しぼり 写真</span></div>
+        <div class="exp-card-body">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6v4l1 3v8a1 1 0 01-1 1H9a1 1 0 01-1-1v-8l1-3z"/></svg></div>
+          <h3>乳しぼり体験</h3>
+          <p>牛さんからミルクをしぼってみよう!</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-photo" style="background:#fce4d6"><span class="ph-label">バター 写真</span></div>
+        <div class="exp-card-body">
+          <div class="ico" style="background:#fce4d6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#c87a3e"><circle cx="12" cy="14" r="6"/><path d="M9 8L7 4M15 8l2-4"/></svg></div>
+          <h3>バター作り体験</h3>
+          <p>作りたてのバターはとってもおいしい♪</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-photo" style="background:#e6f0e8"><img src="https://static.wixstatic.com/media/633c51_42f4528dcc7a4a26894757dcfda29cf3~mv2.png" alt="羊"></div>
+        <div class="exp-card-body">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="6"/><path d="M9 9c1 1 5 1 6 0M10 14c.5.5 3 .5 4 0"/></svg></div>
+          <h3>動物ふれあい</h3>
+          <p>牛や羊、うさぎたちとやさしくふれあおう。</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-photo" style="background:#f5ede0"><span class="ph-label">羊毛クラフト 写真</span></div>
+        <div class="exp-card-body">
+          <div class="ico" style="background:#f5ede0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a87a32"><path d="M5 12c0-4 3-7 7-7s7 3 7 7-3 7-7 7-7-3-7-7z"/><path d="M8 10c1-1 7-1 8 0M8 13c1 1 7 1 8 0"/></svg></div>
+          <h3>羊の毛刈り・<br>羊毛クラフト</h3>
+          <p>ふわふわの羊毛で作品づくり体験!</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-photo" style="background:#e6efe2"><span class="ph-label">教育ファーム 写真</span></div>
+        <div class="exp-card-body">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" /><path d="M12 4v16M4 12h16"/></svg></div>
+          <h3>教育ファーム</h3>
+          <p>自然や命の大切さを学ぶプログラム。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-foot">団体や学校の体験学習も受付中! お気軽にご相談ください。</div>
+  </div>
+</section>
+
+<!-- 波: cream → milk -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:var(--cream)"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fbf5e8"/></svg>
+
+<!-- ===== ③ 手づくり乳製品 ===== -->
+<section class="dairy">
+  <div class="inner">
+    <div class="dairy-intro">
+      <h2>手づくり乳製品</h2>
+      <p>牧場の新鮮なミルクをたっぷり使った、やさしい味わいの乳製品を心を込めて手づくりしています。</p>
+      <a class="cart-btn" href="#">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/><path d="M3 3h2l3 12h11l3-9H6"/></svg>
+        商品一覧・ご購入はこちら
+      </a>
+    </div>
+
+    <div class="dairy-grid">
+      <div class="product">
+        <div class="product-img">🥛</div>
+        <h3>ノンホモ牛乳</h3>
+        <p>72℃15秒間のやさしい殺菌</p>
+      </div>
+      <div class="product">
+        <div class="product-img">🥄</div>
+        <h3>ヨーグルト</h3>
+        <p>まろやかでコクのある味わい</p>
+      </div>
+      <div class="product">
+        <div class="product-img">🍦</div>
+        <h3>ソフトクリーム</h3>
+        <p>濃厚なのに後味すっきり</p>
+      </div>
+      <div class="product">
+        <div class="product-img">🍩</div>
+        <h3>牧場ドーナツ</h3>
+        <p>毎日手づくりのやさしい甘さ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 波: milk → mint -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:var(--milk)"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#f0f7ea"/></svg>
+
+<!-- ===== ④ 福祉の牧場として ===== -->
+<section class="welfare">
+  <div class="inner">
+    <div class="welfare-intro">
+      <h2>福祉の牧場として</h2>
+      <p>人にやさしく、地域にやさしい牧場を目指して。</p>
+      <p>私たちは、社会福祉法人として、地域の皆さまとともに障がいのある方や子ども、高齢者の支援に取り組んでいます。牧場での仕事や体験、ふれあいを通して、一人ひとりがいきいきと輝ける社会をつくります。</p>
+    </div>
+
+    <div>
+      <div class="welfare-grid">
+        <div class="wcard shogai">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="6" r="2.5"/><path d="M9 12c0-1.5 1.3-3 3-3s3 1.5 3 3v3M7 14l3 3M17 14l-3 3M9 21h6"/></svg></div>
+          <h3>障がい者支援</h3>
+          <p>働く喜びや自立を支え、いきいきとした毎日をサポートします。</p>
+        </div>
+        <div class="wcard jido">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="6" r="2"/><circle cx="15" cy="6" r="2"/><path d="M5 14c0-2 2-3 4-3s4 1 4 3M11 14c0-2 2-3 4-3s4 1 4 3M5 18h14"/></svg></div>
+          <h3>児童福祉</h3>
+          <p>子どもたちの健やかな成長を支える取り組みを行っています。</p>
+        </div>
+        <div class="wcard korei">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="6" r="2.5"/><path d="M10 9v3l-3 6M14 9v3l3 6M9 11h6"/></svg></div>
+          <h3>高齢者福祉</h3>
+          <p>高齢者の生きがいやすらぎにつながる活動を行っています。</p>
+        </div>
+        <div class="wcard shurou">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M9 8V5h6v3M4 13h16"/></svg></div>
+          <h3>就労支援</h3>
+          <p>それぞれの個性や能力を活かせる仕事づくりに取り組んでいます。</p>
+        </div>
+      </div>
+
+      <div class="welfare-foot">牧場の収益は、福祉事業の充実や地域貢献活動に活用しています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 波: mint → cream -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#e1ecda"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="var(--cream-pale)"/></svg>
+
+<!-- ===== ⑤ 季節のイベント ===== -->
+<section class="events">
+  <div class="inner">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <h2>季節のイベント</h2>
+        <span class="lead">四季を通して、楽しいイベントを開催しています。</span>
+      </div>
+      <a class="pill-link" href="#">イベントカレンダーを見る <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <div class="events-grid">
+      <div class="ev-card spring">
+        <div class="ev-photo"><span class="ev-badge">春</span><span class="ph-label">春 写真</span></div>
+        <div class="ev-body">
+          <h3>新緑と動物たち</h3>
+          <p>春のふれあいイベント</p>
+        </div>
+      </div>
+      <div class="ev-card summer">
+        <div class="ev-photo"><span class="ev-badge">夏</span><span class="ph-label">夏 写真</span></div>
+        <div class="ev-body">
+          <h3>牧場の夏まつり</h3>
+          <p>体験イベントがいっぱい!</p>
+        </div>
+      </div>
+      <div class="ev-card autumn">
+        <div class="ev-photo"><span class="ev-badge">秋</span><span class="ph-label">秋 写真</span></div>
+        <div class="ev-body">
+          <h3>収穫祭</h3>
+          <p>味覚と体験を楽しもう!</p>
+        </div>
+      </div>
+      <div class="ev-card winter">
+        <div class="ev-photo"><span class="ev-badge">冬</span><span class="ph-label">冬 写真</span></div>
+        <div class="ev-body">
+          <h3>クリスマス会・地域交流</h3>
+          <p>あたたかなつながりを大切に。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ⑥ アクセス + FAQ ===== -->
+<section class="access-faq" id="access">
+  <div class="row">
+    <div class="ac-card">
+      <h3>アクセス</h3>
+      <div class="ac-row">
+        <svg viewBox="0 0 24 24"><path d="M5 16V10l2-4h10l2 4v6"/><rect x="3" y="14" width="18" height="4" rx="1"/><circle cx="7.5" cy="18.5" r="1.3"/><circle cx="16.5" cy="18.5" r="1.3"/></svg>
+        <div class="label">東名高速道路<b>「袋井IC」</b>から約20分<br>駐車場：普通車100台／大型バス可</div>
+      </div>
+      <div class="ac-row">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="label">〒437-1311<br>静岡県袋井市山崎 5902-167</div>
+      </div>
+      <div class="ac-mini">アクセスマップ</div>
+      <a class="pill-link" href="#">アクセス詳細を見る <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <div class="faq-card">
+      <h3>よくあるご質問</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <span class="q">営業時間は何時から何時までですか?</span>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-item">
+          <span class="q">雨の日でも体験できますか?</span>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-item">
+          <span class="q">団体予約はどうすればいいですか?</span>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-item">
+          <span class="q">ペットの同伴はできますか?</span>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="faq-deco">🐑 👨‍👧</div>
+    </div>
+  </div>
+</section>
+
+<script src="_resize.js"></script>
+</body>
+</html>
