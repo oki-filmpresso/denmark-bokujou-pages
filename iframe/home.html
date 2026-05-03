@@ -105,11 +105,6 @@
       radial-gradient(ellipse 50% 30% at 70% 70%, rgba(255,255,255,.5), transparent 70%);
     pointer-events:none;z-index:1
   }
-  .dairy::after{
-    content:"";position:absolute;top:5%;right:3%;width:120px;height:240px;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 160'><path d='M40 5 Q35 25 30 35 T25 80 Q20 130 30 155 H50 Q60 130 55 80 T50 35 Q45 25 40 5 Z' fill='%239bbe98' opacity='.4'/></svg>") no-repeat center/contain;
-    pointer-events:none;z-index:1;transform:rotate(15deg)
-  }
   .dairy .inner{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
   .dairy-intro h2{font-size:clamp(28px,4vw,40px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.4;font-family:"Hiragino Mincho ProN",serif;margin-bottom:14px}
   .dairy-intro h2::after{content:" 🥛";font-size:.7em}
@@ -134,11 +129,6 @@
 
   /* ===== ④ 福祉の牧場として ===== */
   .welfare{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%);position:relative}
-  .welfare::before{
-    content:"";position:absolute;left:5%;top:55%;width:130px;height:130px;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='30' y='40' width='40' height='35' fill='%23fff' opacity='.7'/><polygon points='25,40 75,40 50,15' fill='%23d4a874' opacity='.7'/><rect x='42' y='55' width='8' height='14' fill='%239bbe98'/><circle cx='75' cy='25' r='8' fill='%239bbe98' opacity='.6'/><line x1='75' y1='10' x2='75' y2='40' stroke='%239bbe98' stroke-width='1.5' opacity='.5'/></svg>") no-repeat center/contain;
-    z-index:1;pointer-events:none
-  }
   .welfare .inner{display:grid;grid-template-columns:280px 1fr;gap:60px;align-items:center}
   .welfare-intro h2{font-size:clamp(26px,3.6vw,34px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.45;font-family:"Hiragino Mincho ProN",serif;margin-bottom:18px}
   .welfare-intro p{font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#4a4a3a;line-height:2.05;margin-bottom:.6em}
@@ -277,16 +267,6 @@
   .recruit{
     background:linear-gradient(180deg,#fdf8eb 0%,#f7e9c8 100%);
     position:relative
-  }
-  .recruit::before{
-    content:"";position:absolute;top:8%;left:4%;width:90px;height:90px;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 C30 15 18 35 22 55 C26 75 50 88 50 88 C50 88 74 75 78 55 C82 35 70 15 50 15 Z' fill='%23d49a4d' opacity='.3'/></svg>") no-repeat center/contain;
-    pointer-events:none;z-index:1
-  }
-  .recruit::after{
-    content:"";position:absolute;bottom:10%;right:5%;width:70px;height:70px;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='30' fill='none' stroke='%239bbe98' stroke-width='4' opacity='.5'/><circle cx='50' cy='50' r='10' fill='%239bbe98' opacity='.5'/></svg>") no-repeat center/contain;
-    pointer-events:none;z-index:1
   }
   .recruit .r-head{text-align:center;margin-bottom:36px;position:relative;z-index:2}
   .recruit .r-head .badge{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:#fff;background:var(--accent);padding:6px 18px;border-radius:999px;margin-bottom:14px;font-weight:700}
