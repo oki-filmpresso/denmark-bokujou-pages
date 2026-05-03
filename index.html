@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denmark Bokujou — iframe assets</title>
+<style>
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:#2c2a26;background:#faf8f3;margin:0;padding:48px 24px;line-height:1.8}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:1.4rem;border-bottom:2px solid #5b7c3a;padding-bottom:10px;margin:0 0 8px}
+  .sub{color:#6b6760;font-size:.9rem;margin:0 0 32px}
+  h2{font-size:1rem;color:#5b7c3a;border-left:3px solid #5b7c3a;padding-left:10px;margin:32px 0 12px}
+  ul{list-style:none;padding:0;margin:0}
+  li{padding:10px 14px;background:#fff;border:1px solid #e3dccb;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  li a{color:#2c2a26;text-decoration:none;font-weight:600}
+  li a:hover{color:#5b7c3a;text-decoration:underline}
+  li code{font-size:.78rem;color:#6b6760;background:#f3efe5;padding:3px 8px;border-radius:3px;font-family:ui-monospace,monospace}
+  .note{margin-top:36px;padding:14px 18px;background:#f3efe5;border-left:3px solid #b08a3a;font-size:.88rem;color:#6b6760}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>社会福祉法人デンマーク牧場福祉会 — iframe assets</h1>
+  <p class="sub">Wix Studio から iframe で参照する各施設ページのHTML置き場(GitHub Pagesホスティング)。</p>
+
+  <h2>iframe HTMLs</h2>
+  <ul>
+    <li><a href="iframe/denmark-bokujo.html">法人概要(/policy 用)</a><code>iframe/denmark-bokujo.html</code></li>
+    <li><a href="iframe/denmark-enkaku.html">概要・沿革・財務状況</a><code>iframe/denmark-enkaku.html</code></li>
+    <li><a href="iframe/denmark-privacy.html">個人情報保護方針</a><code>iframe/denmark-privacy.html</code></li>
+    <li><a href="iframe/ibuki-rich.html">就労支援いぶき(リッチ版)</a><code>iframe/ibuki-rich.html</code></li>
+    <li><a href="iframe/kohituji-renewal.html">こひつじ診療所</a><code>iframe/kohituji-renewal.html</code></li>
+    <li><a href="iframe/denmark-lp-mockup.html">LPモックアップ</a><code>iframe/denmark-lp-mockup.html</code></li>
+  </ul>
+
+  <div class="note">
+    更新フロー: ローカルでHTML編集 → <code>git push origin gh-pages</code> → 数十秒で github.io に反映 → Wix側のiframeは固定URLなので無修正。
+  </div>
+</div>
+</body>
+</html>
