@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>デンマーク牧場 - デンマーク牧場福祉会</title>
+<style>
+  :root{
+    --ink:#343830;
+    --green-deep:#2e7344;
+    --green:#558d60;
+    --green-soft:#9bbe98;
+    --cream:#fffbf0;
+    --accent:#d49a4d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95;letter-spacing:.05em}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  section{position:relative;padding:96px 24px;overflow:hidden}
+  .inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+  .wave{display:block;width:100%;height:64px}
+
+  /* HERO */
+  .hero{background:#CFF6DB;text-align:center;padding:100px 24px 80px}
+  .hero .kicker{font-family:"Hiragino Sans",sans-serif;font-size:12px;letter-spacing:.5em;color:var(--green);margin-bottom:16px}
+  .hero h1{font-size:clamp(32px,5.6vw,58px);color:var(--green-deep);letter-spacing:.14em;font-weight:600;line-height:1.3;margin-bottom:14px}
+  .hero .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(18px,2.6vw,26px);color:var(--green-deep);letter-spacing:.18em;margin-bottom:28px;line-height:1.5}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:780px;margin:0 auto}
+  .hero-tags span{background:#fff;color:var(--green-deep);padding:8px 18px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;box-shadow:0 4px 12px rgba(46,115,68,.1)}
+
+  /* SVC 見出し */
+  .svc-head{text-align:center;margin-bottom:48px}
+  .svc-head .badge{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:#fff;background:var(--green-deep);padding:6px 18px;border-radius:999px;margin-bottom:14px}
+  .svc-head h2{font-size:clamp(28px,4.2vw,40px);color:var(--green-deep);letter-spacing:.12em;font-weight:600;line-height:1.4}
+  .svc-head .en{font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.5em;color:var(--green);margin-top:10px;display:block}
+
+  /* ① コンセプト */
+  .intro{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%)}
+  .intro-card{background:#fff;border-radius:20px;padding:44px 48px;box-shadow:0 6px 28px rgba(46,115,68,.1);border-left:6px solid var(--green-deep)}
+  .intro-card .lbl{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--green);letter-spacing:.3em;font-weight:700;margin-bottom:14px;display:block}
+  .intro-card .quote{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(20px,2.8vw,28px);color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:24px;line-height:1.6}
+  .intro-card p{font-family:"Hiragino Sans",sans-serif;font-size:15.5px;color:#333;line-height:2.05;margin-bottom:.8em}
+  .intro-card p:last-child{margin-bottom:0}
+  .intro-card b{color:var(--green-deep);font-weight:700}
+
+  /* ② エサやり体験 */
+  .experience{background:var(--cream)}
+  .exp-card{background:#fff;border-radius:20px;padding:48px;box-shadow:0 4px 22px rgba(46,115,68,.08);text-align:center}
+  .exp-card .emoji{font-size:48px;margin-bottom:14px}
+  .exp-card h3{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(22px,3vw,30px);color:var(--green-deep);letter-spacing:.1em;margin-bottom:14px;line-height:1.5}
+  .exp-card .sub{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:var(--accent);letter-spacing:.2em;font-weight:700;margin-bottom:24px}
+  .exp-photo{max-width:440px;margin:0 auto 28px;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(46,115,68,.12)}
+  .exp-photo img{width:100%;height:auto;display:block;aspect-ratio:4/3;object-fit:cover}
+  .exp-card p{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#333;line-height:2;max-width:600px;margin:0 auto 28px}
+  .exp-anim{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+  .exp-anim .a{background:#eaf3ed;color:var(--green-deep);padding:12px 22px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:.15em;display:flex;align-items:center;gap:8px}
+  .exp-anim .a .e{font-size:20px}
+
+  @media(max-width:760px){
+    section{padding:64px 20px}
+    .hero{padding:72px 20px 56px}
+    .hero-tags{justify-content:flex-start}
+    .intro-card,.exp-card{padding:28px 22px}
+    .exp-photo{max-width:100%}
+    .wave{height:40px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner">
+    <div class="kicker">DAILY FARM</div>
+    <h1>デンマーク牧場</h1>
+    <div class="lead">放牧牛と羊に、会いに行こう。</div>
+    <div class="hero-tags">
+      <span>🐄 放牧牛</span><span>🐑 羊</span><span>🐎 馬</span><span>🐐 ヤギ</span><span>☕ カフェ併設</span><span>🥛 自家製乳製品</span>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#CFF6DB"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#f0f7ea"/></svg>
+
+<!-- ① コンセプト -->
+<section class="intro">
+  <div class="inner">
+    <div class="intro-card">
+      <span class="lbl">CONCEPT</span>
+      <div class="quote">いきものとして、しあわせに暮らす場所。</div>
+      <p>デンマーク牧場では、<b>放牧</b>を基本に牛・羊・馬・ヤギを育てています。広い丘の上で草を食み、雨や風の音を聴きながらのびのびと過ごす——いきものが本来の姿で生きていけることを、何より大切にしています。</p>
+      <p>この牧場では、就労支援「いぶき」の利用者と職員が一緒に動物の世話・牧場管理・乳製品の製造を行い、<b>福祉と酪農がひとつの場所で営まれています</b>。</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#e1ecda"/></svg>
+
+<!-- ② エサやり体験 -->
+<section class="experience">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">EXPERIENCE</span>
+      <h2>エサやり体験</h2>
+      <span class="en">FEEDING EXPERIENCE</span>
+    </div>
+    <div class="exp-card">
+      <div class="emoji">🐄</div>
+      <h3>今日からキミも「飼育員さん」気分！</h3>
+      <div class="sub">エサやり体験してみませんか。</div>
+      <div class="exp-photo">
+        <img src="https://static.wixstatic.com/media/633c51_da4311452a6746ae969aabcf0badf226~mv2.jpg" alt="デンマーク牧場の動物たち">
+      </div>
+      <p>ふだん絵本やテレビでしか見ない牛や羊たちと、間近で触れ合える時間。お子さまも大人も、いのちの温かさを五感で感じてみてください。</p>
+      <div class="exp-anim">
+        <span class="a"><span class="e">🐄</span>牛のエサやり</span>
+        <span class="a"><span class="e">🐑</span>羊にあいさつ</span>
+        <span class="a"><span class="e">🐎</span>馬とご対面</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="_resize.js"></script>
+</body>
+</html>
