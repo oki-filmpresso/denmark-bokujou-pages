@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法人案内 - デンマーク牧場福祉会</title>
+<style>
+  :root{
+    --ink:#343830;
+    --green-deep:#2e7344;
+    --green:#558d60;
+    --green-soft:#9bbe98;
+    --cream:#fffbf0;
+    --cream-warm:#fbf2dd;
+    --sand:#f0e3c3;
+    --accent:#d49a4d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+    line-height:1.95;letter-spacing:.05em
+  }
+  img,svg{display:block;max-width:100%}
+
+  section{position:relative;padding:104px 24px;overflow:hidden}
+  .inner{max-width:960px;margin:0 auto;position:relative;z-index:2}
+  .eyebrow{
+    display:inline-block;font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;letter-spacing:.5em;color:var(--green);
+    padding-bottom:10px;position:relative;margin-bottom:22px
+  }
+  .eyebrow::after{content:"";position:absolute;left:0;bottom:0;width:40px;height:1px;background:var(--green-soft)}
+  .eyebrow.center{display:block;text-align:center;padding:0;margin-bottom:18px}
+  .eyebrow.center::after{left:50%;transform:translateX(-20px)}
+  .jp-sub{font-family:"Hiragino Sans",sans-serif;font-size:13px;letter-spacing:.35em;color:var(--green);margin-bottom:14px;text-align:center}
+  h2.ttl{font-size:clamp(28px,4.2vw,44px);color:var(--green-deep);font-weight:600;line-height:1.45;letter-spacing:.08em}
+  .wave{display:block;width:100%;height:64px}
+
+  /* ① 法人概要 */
+  .about{background:var(--cream)}
+  .about .grid{display:grid;grid-template-columns:1fr 1.8fr;gap:64px;align-items:start}
+  .about .title-col h2{font-size:clamp(28px,3.8vw,40px);color:var(--green-deep);letter-spacing:.08em;line-height:1.5;font-weight:600}
+  .about .title-col .accent-line{width:48px;height:2px;background:var(--green);margin:24px 0 28px}
+  .about .title-col .note{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--green);letter-spacing:.3em}
+  .about p{font-size:15.5px;color:#3a3a32;margin-bottom:1.4em;line-height:2.05}
+  .about p:last-child{margin-bottom:0}
+  .about b{color:var(--green-deep);font-weight:700}
+
+  /* ② 法人理念 */
+  .mission{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%);text-align:center}
+  .mission .quote{
+    font-size:clamp(20px,3vw,30px);color:var(--green-deep);
+    line-height:2.15;letter-spacing:.12em;margin:20px auto 56px;max-width:760px;font-weight:500
+  }
+  .mission .quote em{
+    font-style:normal;background:linear-gradient(transparent 62%,rgba(255,255,255,.8) 62%);padding:0 6px
+  }
+  .facilities{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:920px;margin:0 auto}
+  .fac{
+    background:#fff;border-radius:18px;padding:24px 12px;text-align:center;
+    box-shadow:0 4px 22px rgba(46,115,68,.1);transition:transform .3s
+  }
+  .fac:hover{transform:translateY(-4px)}
+  .fac .cat{font-family:"Hiragino Sans",sans-serif;font-size:10px;color:var(--green);letter-spacing:.15em;display:block;margin-bottom:8px;line-height:1.5}
+  .fac .name{font-size:15px;color:var(--green-deep);font-weight:700;line-height:1.4;font-family:"Hiragino Sans",sans-serif;letter-spacing:.05em}
+  .fac .leaf{width:24px;height:24px;margin:0 auto 10px;opacity:.8}
+
+  /* ③ Vision & Pyramid */
+  .vision{background:var(--cream)}
+  .vision .v-head{text-align:center;margin-bottom:52px}
+  .vision .v-title{font-size:clamp(32px,5.2vw,56px);color:var(--green-deep);letter-spacing:.06em;font-weight:600;line-height:1.35;margin:14px 0 32px}
+  .vision .v-title .accent{background:linear-gradient(transparent 62%,#d8edce 62%);padding:0 6px}
+  .vision .v-desc{font-size:15.5px;color:#3a3a32;max-width:640px;margin:0 auto;line-height:2.1}
+  .frame{
+    background:linear-gradient(180deg,#eaf3ed 0%,#d2e3d4 100%);
+    border-radius:22px;padding:64px 48px 44px;margin-top:64px;position:relative;
+    box-shadow:0 8px 34px rgba(46,115,68,.12)
+  }
+  .frame-ttl{
+    position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+    background:#fff;padding:12px 32px;border-radius:4px;
+    font-family:"Hiragino Sans",sans-serif;font-size:13px;
+    color:var(--green-deep);letter-spacing:.25em;font-weight:700;white-space:nowrap;
+    box-shadow:0 4px 18px rgba(46,115,68,.14)
+  }
+  .pyramid-row{display:grid;grid-template-columns:320px 1fr;gap:44px;align-items:center;margin-top:24px}
+  .pyramid-svg{width:100%;max-width:320px;display:block;margin:0 auto}
+  .tiers{display:flex;flex-direction:column;gap:30px}
+  .tier{display:grid;grid-template-columns:108px 1fr;align-items:center;gap:22px}
+  .tier .label{background:#fff;border-radius:999px;padding:14px 10px;text-align:center;font-family:"Hiragino Sans",sans-serif;line-height:1.25;box-shadow:0 3px 12px rgba(46,115,68,.14)}
+  .tier .label .jp{font-size:14px;color:var(--green-deep);font-weight:700;display:block;letter-spacing:.08em}
+  .tier .label .en{font-size:10px;color:var(--green);letter-spacing:.25em;margin-top:3px;display:block}
+  .tier .body{font-size:17px;color:var(--green-deep);line-height:1.8;font-weight:500}
+  .tier.vision-t .body{font-size:20px;font-weight:600}
+  .tier .row{display:flex;gap:12px;align-items:center;margin-top:8px;font-size:15px;flex-wrap:wrap}
+  .tier .row:first-child{margin-top:0}
+  .chip{font-family:"Hiragino Sans",sans-serif;font-size:10px;background:var(--green-deep);color:#fff;padding:5px 12px;border-radius:3px;letter-spacing:.25em;flex-shrink:0;font-weight:700}
+  .chip.mind{background:var(--accent)}
+  .tier-foot{margin-top:28px;font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#667;text-align:right;letter-spacing:.05em}
+
+  /* ④ Credo */
+  .credo{background:linear-gradient(180deg,#fcf5e0 0%,#f2e2bf 100%)}
+  .credo .c-head{text-align:center;margin-bottom:60px}
+  .credo .c-head h2{font-size:clamp(26px,3.4vw,36px);color:var(--green-deep);letter-spacing:.1em;font-weight:600;line-height:1.5;margin-top:6px}
+  .credo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .credo-grid.minds{grid-template-columns:repeat(2,1fr);max-width:640px;margin:28px auto 0}
+  .card{background:#fff;border-radius:6px;padding:36px 26px 30px;position:relative;border-top:3px solid var(--green-deep);box-shadow:0 3px 16px rgba(160,130,70,.12)}
+  .card.mind{border-top-color:var(--accent);background:#fffbf3}
+  .card .tag{position:absolute;top:-13px;left:26px;background:var(--green-deep);color:#fff;font-family:"Hiragino Sans",sans-serif;font-size:10px;letter-spacing:.3em;padding:5px 13px;border-radius:2px;font-weight:700}
+  .card.mind .tag{background:var(--accent)}
+  .card .ttl{font-size:26px;color:var(--green-deep);font-weight:700;margin:6px 0 14px;letter-spacing:.12em;font-family:"Hiragino Mincho ProN",serif}
+  .card.mind .ttl{color:var(--accent)}
+  .card .desc{font-size:14.5px;line-height:1.9;color:#3a3a32;font-family:"Hiragino Sans",sans-serif}
+  .card .desc b{color:var(--green-deep);font-weight:700}
+  .card.mind .desc b{color:var(--accent)}
+  .c-foot{text-align:center;margin-top:56px;color:var(--green);font-family:"Hiragino Sans",sans-serif;font-size:13px;letter-spacing:.4em}
+  .c-foot::before,.c-foot::after{content:"";display:inline-block;width:40px;height:1px;background:var(--green-soft);vertical-align:middle;margin:0 18px}
+
+  /* ⑤ 理事長あいさつ */
+  .chairman{background:var(--cream-warm)}
+  .chairman .ch-head{text-align:center;margin-bottom:56px}
+  .chairman .ch-title{
+    font-size:clamp(28px,4.4vw,44px);color:var(--green-deep);
+    letter-spacing:.1em;font-weight:600;line-height:1.45;margin-top:6px
+  }
+  .chairman .ch-title .q{color:var(--accent);font-weight:700}
+  .ch-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+  .ch-portrait{text-align:center}
+  .ch-portrait .frame-img{
+    width:100%;max-width:260px;aspect-ratio:1/1;
+    border-radius:50%;overflow:hidden;margin:0 auto 20px;
+    box-shadow:0 8px 28px rgba(46,115,68,.18);
+    background:#f0e8d8;position:relative;
+    border:6px solid #fff
+  }
+  .ch-portrait .frame-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .ch-name .role{
+    font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;
+    color:var(--green);margin-bottom:6px
+  }
+  .ch-name .jname{
+    font-family:"Hiragino Mincho ProN",serif;font-size:22px;
+    color:var(--green-deep);letter-spacing:.3em;font-weight:600
+  }
+  .ch-text p{
+    font-size:15px;color:#3a3a32;margin-bottom:1.4em;line-height:2.05;text-align:justify
+  }
+  .ch-text p:last-child{margin-bottom:0}
+  .ch-text b{color:var(--green-deep);font-weight:700}
+  .ch-text .pull{
+    display:block;font-size:17px;color:var(--green-deep);font-weight:600;
+    padding:18px 20px;border-left:3px solid var(--accent);
+    margin:8px 0 24px;line-height:1.9;background:rgba(255,255,255,.55);
+    border-radius:0 8px 8px 0
+  }
+
+  /* ⑥ Access */
+  .access{background:linear-gradient(180deg,#eff6e9 0%,#e3edd9 100%)}
+  .access .a-head{display:flex;align-items:center;gap:14px;margin-bottom:44px;justify-content:center}
+  .a-badge{display:inline-flex;align-items:center;gap:10px;background:var(--green-deep);color:#fff;padding:11px 24px;border-radius:4px}
+  .a-badge span{font-family:"Hiragino Sans",sans-serif;font-size:15px;letter-spacing:.3em;font-weight:700}
+  .a-badge svg{width:18px;height:18px;color:#fff}
+  .a-list{display:flex;flex-direction:column;gap:18px;max-width:840px;margin:0 auto}
+  .a-item{display:grid;grid-template-columns:72px 96px 1fr;align-items:center;gap:22px;background:#fff;border-radius:16px;padding:22px 30px;box-shadow:0 3px 16px rgba(46,115,68,.09)}
+  .a-icon{width:56px;height:56px;border-radius:50%;background:#eef6ea;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .a-icon svg{width:28px;height:28px;color:var(--green-deep)}
+  .a-label{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:var(--green-deep);font-weight:700;letter-spacing:.35em;border-right:1px solid #d7e4d9;padding-right:22px}
+  .a-desc{font-family:"Hiragino Sans",sans-serif;font-size:14.5px;color:#3a3a32;line-height:1.9}
+  .a-desc b{color:var(--green-deep);font-weight:700}
+  .a-note{font-size:12px;color:#7a8a7d;margin-left:4px}
+
+  @media(max-width:760px){
+    section{padding:72px 20px}
+    .about .grid{grid-template-columns:1fr;gap:32px}
+    .facilities{grid-template-columns:repeat(2,1fr)}
+    .frame{padding:52px 20px 32px;margin-top:48px}
+    .pyramid-row{grid-template-columns:1fr;gap:32px}
+    .pyramid-svg{max-width:240px}
+    .tier{grid-template-columns:90px 1fr;gap:14px}
+    .tier .body{font-size:15px}
+    .tier.vision-t .body{font-size:18px}
+    .credo-grid{grid-template-columns:1fr;gap:20px}
+    .credo-grid.minds{grid-template-columns:1fr}
+    .ch-grid{grid-template-columns:1fr;gap:32px;text-align:left}
+    .ch-portrait .frame-img{max-width:200px}
+    .a-item{grid-template-columns:52px 1fr;gap:14px;padding:18px 20px}
+    .a-label{border-right:none;padding-right:0;grid-column:2;font-size:13px;margin-bottom:-4px}
+    .a-desc{grid-column:2;font-size:13.5px}
+    .a-icon{width:44px;height:44px}
+    .a-icon svg{width:22px;height:22px}
+    .wave{height:40px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ① 法人概要 -->
+<section class="about">
+  <div class="inner">
+    <div class="grid">
+      <div class="title-col">
+        <span class="eyebrow">ABOUT US</span>
+        <h2>心やすらぐ<br>牧歌的風景の中で。</h2>
+        <div class="accent-line"></div>
+        <div class="note">社会福祉法人<br>デンマーク牧場福祉会</div>
+      </div>
+      <div class="body-col">
+        <p>デンマーク牧場福祉会は、全国でも数少ない<b>牧場のある社会福祉法人</b>です。</p>
+        <p>「デンマーク牧場」の名前の由来は、ノルウェー、スウェーデン、デンマークというスカンジナビアの国々のキリスト教伝道団体が、この地でデンマーク式の牧場と酪農学校、そして教会を建設したことによります。</p>
+        <p>デンマーク牧場は、酪農を通して人を育て、キリスト教を伝えるという酪農学校から始まりました。牧場で共に働き、共に学び、共に生活するという精神は、現在もこどもたちや利用者に生きる力を育み、安らぎの場として息吹いています。</p>
+        <p>法人内の各事業所は、敷地<b>約50万㎡</b>の広大なデンマーク牧場の一端に位置しており、四季折々の豊かな自然に囲まれ、牛や羊、馬などの家畜をはじめ、様々な生き物が身近に暮らす場所でもあります。自然への畏敬を全身で感じ、「感謝」を積み重ねる生活を提供し、各事業所が連携しながら、お互いの個性や育ってきた環境を尊重し合える関係形成を目指します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 波1: About(cream) → Mission(mint) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#f0f7ea"/>
+</svg>
+
+<!-- ② 法人理念 -->
+<section class="mission">
+  <div class="inner">
+    <span class="eyebrow center">OUR MISSION</span>
+    <div class="jp-sub">法人理念</div>
+    <p class="quote">目の前にいる一人ひとりは、<br><em>神に愛される人</em>として<br>大切にされる<em>いのち</em>である。</p>
+
+    <div class="facilities">
+      <div class="fac">
+        <svg class="leaf" viewBox="0 0 24 24" fill="#9bbe98"><path d="M12 2C7 2 4 6 4 11s3 11 8 11 8-6 8-11S17 2 12 2zm0 3c3 0 5 3 5 8s-2 8-5 8-5-3-5-8 2-8 5-8z"/></svg>
+        <span class="cat">高齢者福祉</span>
+        <span class="name">ディアコニア</span>
+      </div>
+      <div class="fac">
+        <svg class="leaf" viewBox="0 0 24 24" fill="#9bbe98"><path d="M12 2L4 8v12h5v-7h6v7h5V8L12 2z"/></svg>
+        <span class="cat">児童養護施設</span>
+        <span class="name">まきばの家</span>
+      </div>
+      <div class="fac">
+        <svg class="leaf" viewBox="0 0 24 24" fill="#9bbe98"><circle cx="12" cy="9" r="4"/><path d="M6 20c0-3 3-5 6-5s6 2 6 5z"/></svg>
+        <span class="cat">障がい者福祉</span>
+        <span class="name">いぶき</span>
+      </div>
+      <div class="fac">
+        <svg class="leaf" viewBox="0 0 24 24" fill="#9bbe98"><path d="M3 12l9-8 9 8v9h-6v-6H9v6H3z"/></svg>
+        <span class="cat">こども家庭<br>サポートセンター</span>
+        <span class="name">だいち／たより／わかば</span>
+      </div>
+      <div class="fac">
+        <svg class="leaf" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="#9bbe98" stroke-width="3" fill="none"/></svg>
+        <span class="cat">診療所</span>
+        <span class="name">こひつじ診療所</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 波2: Mission(mint) → Vision(cream) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#e1ecda"/>
+</svg>
+
+<!-- ③ Vision & Pyramid -->
+<section class="vision">
+  <div class="inner">
+    <div class="v-head">
+      <span class="eyebrow center">OUR VISION</span>
+      <div class="jp-sub">私たちが目指すあるべき姿</div>
+      <h2 class="v-title">「<span class="accent">育ち合う</span>」が文化に</h2>
+      <p class="v-desc">私たちは、施設内での福祉・医療・酪農事業はもちろん、<br>地域の一人ひとりが自ら生きる力を育み、<br>互いに大切にし合える「育ち合う」関係形成を通じて、<br>福祉が根づく組織とまちを目指します。</p>
+    </div>
+
+    <div class="frame">
+      <div class="frame-ttl">MISSION・VISION・CREDO</div>
+      <div class="pyramid-row">
+        <svg class="pyramid-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="face" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#6fae7d"/>
+              <stop offset="0.5" stop-color="#4a8d5c"/>
+              <stop offset="1" stop-color="#2e6d3f"/>
+            </linearGradient>
+            <linearGradient id="shelf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#a5c5a8"/>
+              <stop offset="1" stop-color="#c5d8c7"/>
+            </linearGradient>
+          </defs>
+          <polygon points="150,20 115.7,100 184.3,100" fill="url(#face)"/>
+          <polygon points="115.7,100 184.3,100 188.6,110 111.4,110" fill="url(#shelf)"/>
+          <polygon points="111.4,110 188.6,110 218.6,180 81.4,180" fill="url(#face)"/>
+          <polygon points="81.4,180 218.6,180 222.9,190 77.1,190" fill="url(#shelf)"/>
+          <polygon points="77.1,190 222.9,190 270,300 30,300" fill="url(#face)"/>
+          <text x="150" y="75" text-anchor="middle" fill="#fff" font-size="10" font-family="'Hiragino Sans',sans-serif" font-weight="700" letter-spacing="1">理念</text>
+          <text x="150" y="88" text-anchor="middle" fill="#fff" font-size="7" font-family="'Hiragino Sans',sans-serif">Mission</text>
+          <text x="150" y="145" text-anchor="middle" fill="#fff" font-size="13" font-family="'Hiragino Sans',sans-serif" font-weight="700" letter-spacing="1">あるべき姿</text>
+          <text x="150" y="161" text-anchor="middle" fill="#fff" font-size="9" font-family="'Hiragino Sans',sans-serif">Vision</text>
+          <text x="150" y="245" text-anchor="middle" fill="#fff" font-size="16" font-family="'Hiragino Sans',sans-serif" font-weight="700" letter-spacing="1.5">行動指針</text>
+          <text x="150" y="263" text-anchor="middle" fill="#fff" font-size="10" font-family="'Hiragino Sans',sans-serif">Credo</text>
+        </svg>
+
+        <div class="tiers">
+          <div class="tier">
+            <div class="label"><span class="jp">理念</span><span class="en">MISSION</span></div>
+            <div class="body">目の前にいる一人ひとりは、<br>神に愛される人として<br>大切にされるいのちである。</div>
+          </div>
+          <div class="tier vision-t">
+            <div class="label"><span class="jp">あるべき姿</span><span class="en">VISION</span></div>
+            <div class="body">「育ち合う」が文化に</div>
+          </div>
+          <div class="tier">
+            <div class="label"><span class="jp">行動指針</span><span class="en">CREDO</span></div>
+            <div class="body">
+              <div class="row"><span class="chip">アクション</span>繋ぐ／学ぶ／創る</div>
+              <div class="row"><span class="chip mind">マインド</span>遊びごころ／感謝する気持ち</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tier-foot">私たちは、3つのアクションと2つのマインドを大切にします。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 波3: Vision(cream) → Credo(sand) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fcf5e0"/>
+</svg>
+
+<!-- ④ Credo -->
+<section class="credo">
+  <div class="inner">
+    <div class="c-head">
+      <span class="eyebrow center">OUR CREDO</span>
+      <h2>私たちが大切にしたい<br>アクションとマインド</h2>
+    </div>
+
+    <div class="credo-grid">
+      <div class="card">
+        <span class="tag">ACTION 01</span>
+        <div class="ttl">繋ぐ</div>
+        <p class="desc">立場や価値観をこえて<br><b>「繋がる」</b>ことを楽しもう。</p>
+      </div>
+      <div class="card">
+        <span class="tag">ACTION 02</span>
+        <div class="ttl">学ぶ</div>
+        <p class="desc">当たり前の毎日の中からでも<br><b>「学べる」</b>ことを探そう。</p>
+      </div>
+      <div class="card">
+        <span class="tag">ACTION 03</span>
+        <div class="ttl">創る</div>
+        <p class="desc">おそれず新たなことを<br><b>「創り」</b>うみだし続けよう。</p>
+      </div>
+    </div>
+
+    <div class="credo-grid minds">
+      <div class="card mind">
+        <span class="tag">MIND 01</span>
+        <div class="ttl">遊びごころ</div>
+        <p class="desc">小さな一歩も大きな一歩も<br><b>「遊びごころ」</b>をもって挑もう。</p>
+      </div>
+      <div class="card mind">
+        <span class="tag">MIND 02</span>
+        <div class="ttl">感謝する気持ち</div>
+        <p class="desc">目の前の人や環境への<br><b>「感謝の気持ち」</b>を積み重ねよう。</p>
+      </div>
+    </div>
+
+    <div class="c-foot">豊かなる大地に守られて</div>
+  </div>
+</section>
+
+<!-- 波4: Credo(sand) → Chairman(warm cream) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f2e2bf" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fbf2dd"/>
+</svg>
+
+<!-- ⑤ 理事長あいさつ -->
+<section class="chairman">
+  <div class="inner">
+    <div class="ch-head">
+      <span class="eyebrow center">MESSAGE</span>
+      <div class="jp-sub">理事長あいさつ</div>
+      <h2 class="ch-title">「<span class="q">共に育ち合う</span>」が文化</h2>
+    </div>
+
+    <div class="ch-grid">
+      <div class="ch-portrait">
+        <div class="frame-img">
+          <img src="https://static.wixstatic.com/media/633c51_512d216750d04bc9b48a0542bbfe9aef~mv2.png" alt="理事長 櫻井 隆">
+        </div>
+        <div class="ch-name">
+          <div class="role">理事長</div>
+          <div class="jname">櫻井　隆</div>
+        </div>
+      </div>
+
+      <div class="ch-text">
+        <p>私たちは、2025年４月に<b>「デンマーク牧場こども家庭サポートセンター」</b>の事業を開始することができました。また、自立援助ホーム「こどもの家」は、これまでの役割を児童養護施設でも担えるという判断により、2025年4月にまきばの家の分園型小規模グループケアに用途変更しました。一方、地域小規模児童養護施設「そうげんの家」は３年の運営の中で、当初予想しなかった大きな課題も見つかり、議論を重ねた結果、分園型小規模グループケアに用途変更しました。結果、デンマーク牧場福祉会は、大きく<b>四つの社会福祉事業</b>（特別養護老人ホーム、児童養護施設、就労継続支援事業、児童家庭支援センター）、<b>一つの公益事業</b>（こひつじ診療所）を行う法人となりました。事業の拡大に伴い、職員の数も一昨年の約150名から<b>2026年４月には200名</b>を超える人数となりました。たくさんの新しい職員を迎えて、私たちは何を目指しどんな姿勢で仕事をするのかを改めて確認することが求められていると言えます。</p>
+
+        <p>例年、新規採用職員を対象とした年度初めの研修会を実施していますが、その中に必ず理念研修を位置づけて本法人が目指すところを理解してもらうよう努めています。私が話すときには、本法人の特徴である<b>「キリスト教精神を理念に持つこと」「牧場があること」「診療所があること」</b>の三つと歴史・関わった人々の思いを結び付けながら話をします。</p>
+
+        <p>牧場では牛・馬・羊を飼育し、牛乳・ヨーグルト・アイスクリームなどを作っています。休日には多くの市民が訪れ、しばしの憩いの時を楽しんでいきます。新たに利用される方々にも、この景色、環境が癒しの場になってくれるようにと祈っています。しかし、牧場の働きはそれだけではありません。その仕事には、利用者がスタッフと共に携わり、共に汗を流しています。福祉の始まりとなったフリースクール「こどもの家」では、社会の中でいろいろな問題に翻弄され、素直な気持ちを失いかけてきたこどもたちが、職員と共に牧場作業をする中で、自分を取り戻すことをしてきました。職員もこどもと「共に学ぶ」姿勢の中で、信頼感を築き、こどもと共に職員も成長してきました。</p>
+
+        <span class="pull">デンマーク牧場福祉会ではこの「共に育ち合う」が文化として大切にされているのです。理念として掲げる「目の前にいる一人ひとりは神に愛される人として大切な命である」を生かすことにつながります。</span>
+
+        <p>新しい職員が増えましたが、デンマーク牧場福祉会は、これまで関わっていただいた人々の思いを受け止め、理念を胸に、職員一同が力を合わせて地域福祉の一翼を担っていく所存です。皆様には、本法人が地域の中でよい働きができますよう見守りいただき、ご支援・ご協力をいただきますようよろしくお願いいたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 波5: Chairman(warm cream) → Access(mint) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#fbf2dd" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#eff6e9"/>
+</svg>
+
+<!-- ⑥ Access -->
+<section class="access">
+  <div class="inner">
+    <div class="a-head">
+      <div class="a-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>交通アクセス</span>
+      </div>
+    </div>
+
+    <div class="a-list">
+      <div class="a-item">
+        <div class="a-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="2"/><path d="M5 11h14M8 17l-2 4M16 17l2 4"/><circle cx="9" cy="14" r=".6" fill="currentColor"/><circle cx="15" cy="14" r=".6" fill="currentColor"/></svg>
+        </div>
+        <div class="a-label">鉄　道</div>
+        <div class="a-desc">最寄り駅　<b>JR東海道線　袋井駅</b></div>
+      </div>
+
+      <div class="a-item">
+        <div class="a-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M7 17v2M17 17v2"/><circle cx="8" cy="14.5" r=".6" fill="currentColor"/><circle cx="16" cy="14.5" r=".6" fill="currentColor"/></svg>
+        </div>
+        <div class="a-label">バ　ス</div>
+        <div class="a-desc">袋井駅南口乗り場より秋葉バスサービス<b>「秋葉中遠線」</b>系統［静鉄横須賀車庫行き］［大東支所行き］のいずれかに乗車し<b>「笠原駐在所前」</b>で下車。バス停より徒歩40分<span class="a-note">（バス所要時間 20分）</span></div>
+      </div>
+
+      <div class="a-item">
+        <div class="a-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V10l2-4h10l2 4v6"/><rect x="3" y="14" width="18" height="4" rx="1"/><circle cx="7.5" cy="18.5" r="1.3"/><circle cx="16.5" cy="18.5" r="1.3"/><path d="M10 4h4"/></svg>
+        </div>
+        <div class="a-label">タクシー</div>
+        <div class="a-desc">袋井駅前タクシー乗り場より乗車<span class="a-note">（所要時間 15分）</span></div>
+      </div>
+
+      <div class="a-item">
+        <div class="a-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-4l2-5h12l2 5v4"/><rect x="2" y="14" width="20" height="4" rx="1"/><circle cx="7" cy="18.5" r="1.3"/><circle cx="17" cy="18.5" r="1.3"/></svg>
+        </div>
+        <div class="a-label">自家用車</div>
+        <div class="a-desc">県道41号線、旧笠原保育所交差点を東へ。笠原認定こども園、高橋モータースの前をとおり、三沢公会堂前の信号交差点を直進。荻原製茶、三栄社茶工場を過ぎて<b>500m</b>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="_resize.js"></script>
+</body>
+</html>
