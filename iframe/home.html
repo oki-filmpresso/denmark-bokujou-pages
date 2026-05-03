@@ -189,6 +189,61 @@
   .ev-body h3{font-family:"Hiragino Mincho ProN",serif;font-size:15.5px;color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:6px;line-height:1.5}
   .ev-body p{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#6a6a5a;line-height:1.7}
 
+  /* ===== 採用 ===== */
+  .recruit{
+    background:linear-gradient(180deg,#fdf8eb 0%,#f7e9c8 100%);
+    position:relative
+  }
+  .recruit::before{
+    content:"";position:absolute;top:8%;left:4%;width:90px;height:90px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 C30 15 18 35 22 55 C26 75 50 88 50 88 C50 88 74 75 78 55 C82 35 70 15 50 15 Z' fill='%23d49a4d' opacity='.3'/></svg>") no-repeat center/contain;
+    pointer-events:none;z-index:1
+  }
+  .recruit::after{
+    content:"";position:absolute;bottom:10%;right:5%;width:70px;height:70px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='30' fill='none' stroke='%239bbe98' stroke-width='4' opacity='.5'/><circle cx='50' cy='50' r='10' fill='%239bbe98' opacity='.5'/></svg>") no-repeat center/contain;
+    pointer-events:none;z-index:1
+  }
+  .recruit .r-head{text-align:center;margin-bottom:36px;position:relative;z-index:2}
+  .recruit .r-head .badge{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:#fff;background:var(--accent);padding:6px 18px;border-radius:999px;margin-bottom:14px;font-weight:700}
+  .recruit .r-head h2{font-size:clamp(28px,4vw,40px);color:var(--green-deep);letter-spacing:.14em;font-weight:700;line-height:1.4;font-family:"Hiragino Mincho ProN",serif;margin-bottom:14px}
+  .recruit .r-head .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(16px,2vw,20px);color:var(--green-deep);letter-spacing:.15em;line-height:1.7}
+  .recruit .r-head .lead em{font-style:normal;background:linear-gradient(transparent 62%,rgba(212,154,77,.3) 62%);padding:0 6px;font-weight:700}
+
+  .r-video{
+    max-width:780px;margin:0 auto 36px;border-radius:18px;overflow:hidden;
+    box-shadow:0 12px 40px rgba(46,115,68,.18);
+    aspect-ratio:16/9;background:#000;position:relative;z-index:2
+  }
+  .r-video iframe{width:100%;height:100%;border:0;display:block}
+
+  .r-pills{
+    display:flex;justify-content:center;gap:12px;margin-bottom:36px;flex-wrap:wrap;
+    position:relative;z-index:2
+  }
+  .r-pills span{
+    background:#fff;color:var(--green-deep);padding:10px 22px;border-radius:999px;
+    font-family:"Hiragino Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;
+    box-shadow:0 3px 12px rgba(46,115,68,.1)
+  }
+
+  .r-cta{
+    display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+    position:relative;z-index:2
+  }
+  .r-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 32px;border-radius:999px;
+    font-family:"Hiragino Sans",sans-serif;font-size:14px;font-weight:700;
+    letter-spacing:.15em;min-width:220px;justify-content:center;
+    transition:all .25s
+  }
+  .r-btn.primary{background:var(--green-deep);color:#fff;box-shadow:0 6px 18px rgba(46,115,68,.25)}
+  .r-btn.primary:hover{background:#245a36;transform:translateY(-2px)}
+  .r-btn.outline{background:#fff;color:var(--green-deep);border:2px solid var(--green-deep)}
+  .r-btn.outline:hover{background:var(--green-deep);color:#fff}
+  .r-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
   /* ===== ⑥ アクセス + FAQ ===== */
   .access-faq{background:var(--cream);padding:80px 24px}
   .access-faq .row{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto}
@@ -233,6 +288,10 @@
   }
   @media(max-width:760px){
     section{padding:60px 20px}
+    .recruit .r-pills{gap:8px}
+    .r-pills span{font-size:12px;padding:8px 16px}
+    .r-cta{flex-direction:column;align-items:center}
+    .r-btn{width:100%;max-width:300px}
     .quick-cta{padding:40px 20px}
     .quick-cta .row{grid-template-columns:1fr}
     .qc{padding:18px 20px}
@@ -406,10 +465,45 @@
   </div>
 </section>
 
-<!-- 波: mint → cream -->
-<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#e1ecda"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="var(--cream-pale)"/></svg>
+<!-- 波: mint → recruit(sand) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#e1ecda"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fdf8eb"/></svg>
 
-<!-- ===== ⑤ 季節のイベント ===== -->
+<!-- ===== ⑤ 採用情報 ===== -->
+<section class="recruit">
+  <div class="inner">
+    <div class="r-head">
+      <span class="badge">RECRUIT</span>
+      <h2>採用情報</h2>
+      <p class="lead">私たちと、<em>一緒に働きませんか</em>?</p>
+    </div>
+
+    <div class="r-video">
+      <iframe src="https://www.youtube.com/embed/j61nACeDK8E?rel=0" title="デンマーク牧場福祉会 採用動画" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="r-pills">
+      <span>新卒採用</span>
+      <span>中途採用</span>
+      <span>パート・アルバイト</span>
+    </div>
+
+    <div class="r-cta">
+      <a class="r-btn primary" href="https://www.denmark-bokujyo.com/recruit1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+        募集要項を見る
+      </a>
+      <a class="r-btn outline" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        お問い合わせ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 波: recruit(sand) → events(cream-pale) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f7e9c8"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="var(--cream-pale)"/></svg>
+
+<!-- ===== ⑥ 季節のイベント ===== -->
 <section class="events">
   <div class="inner">
     <div class="sec-head">
