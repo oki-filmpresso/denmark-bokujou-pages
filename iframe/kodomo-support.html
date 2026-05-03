@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>こども家庭サポートセンター - デンマーク牧場福祉会</title>
+<style>
+  :root{
+    --ink:#343830;
+    --green-deep:#2e7344;
+    --green:#558d60;
+    --green-soft:#9bbe98;
+    --cream:#fffbf0;
+    --cream-warm:#fbf2dd;
+    --sand:#f0e3c3;
+    --accent:#d49a4d;
+    --rose:#c87a87;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95;letter-spacing:.05em}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  section{position:relative;padding:96px 24px;overflow:hidden}
+  .inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+  .wave{display:block;width:100%;height:64px}
+
+  /* HERO */
+  .hero{background:#CFF6DB;text-align:center;padding:100px 24px 80px}
+  .hero .kicker{font-family:"Hiragino Sans",sans-serif;font-size:12px;letter-spacing:.5em;color:var(--green);margin-bottom:16px}
+  .hero h1{font-size:clamp(30px,5vw,52px);color:var(--green-deep);letter-spacing:.1em;font-weight:600;line-height:1.4;margin-bottom:28px}
+  .hero .hero-desc{font-size:16px;color:#3a3a32;max-width:640px;margin:0 auto 48px;line-height:2.1}
+  .hero-services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:780px;margin:0 auto}
+  .hs{background:#fff;border-radius:14px;padding:24px 14px;box-shadow:0 4px 18px rgba(46,115,68,.1);border-top:3px solid var(--green-deep)}
+  .hs .jp{font-family:"Hiragino Mincho ProN",serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:.15em;margin-bottom:4px}
+  .hs .en{font-family:"Hiragino Sans",sans-serif;font-size:10px;letter-spacing:.3em;color:var(--green-soft);margin-bottom:10px;display:block}
+  .hs .cat{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#555;line-height:1.5}
+
+  /* SVC 見出し */
+  .svc-head{text-align:center;margin-bottom:48px}
+  .svc-head .badge{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:#fff;background:var(--green-deep);padding:6px 18px;border-radius:999px;margin-bottom:14px}
+  .svc-head h2{font-size:clamp(28px,4.2vw,42px);color:var(--green-deep);letter-spacing:.12em;font-weight:600;line-height:1.4}
+  .svc-head .en{font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.5em;color:var(--green);margin-top:10px;display:block}
+
+  /* ① だいち */
+  .daichi{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%)}
+  .daichi-grid{display:grid;grid-template-columns:320px 1fr;gap:44px;align-items:start}
+  .daichi-img{width:100%;aspect-ratio:4/5;background:#e8e0d0;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(46,115,68,.14)}
+  .daichi-img img{width:100%;height:100%;object-fit:cover}
+  .features{display:flex;flex-direction:column;gap:16px}
+  .feat{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 2px 12px rgba(46,115,68,.08)}
+  .feat .n{background:var(--green-deep);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Sans",sans-serif;font-weight:700;font-size:15px;margin-top:2px}
+  .feat .t{font-size:15px;color:#333;line-height:1.8;font-family:"Hiragino Sans",sans-serif}
+  .feat .t b{color:var(--green-deep);font-weight:700}
+  .feat .t .note{font-size:13px;color:#6a7a6d;display:block;margin-top:4px}
+
+  .pdf-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+  .pdf-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border:1px solid var(--green-soft);border-radius:999px;padding:14px 18px;font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.1em;transition:all .25s;cursor:pointer}
+  .pdf-btn:hover{background:var(--green-deep);color:#fff;border-color:var(--green-deep)}
+  .pdf-btn svg{width:16px;height:16px;flex-shrink:0}
+
+  /* ② わかば */
+  .wakaba{background:var(--cream)}
+  .wakaba-intro{background:#fff;border-radius:16px;padding:36px 40px;margin:0 auto 48px;max-width:820px;box-shadow:0 4px 20px rgba(46,115,68,.08);border-left:4px solid var(--green-deep)}
+  .wakaba-intro .lbl{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--green);letter-spacing:.3em;font-weight:700;margin-bottom:12px;display:block}
+  .wakaba-intro p{font-family:"Hiragino Sans",sans-serif;font-size:15.5px;color:#333;line-height:2.05;margin-bottom:.8em}
+  .wakaba-intro p:last-child{margin-bottom:0}
+  .wakaba-intro b{color:var(--green-deep);font-weight:700}
+
+  .feature-pill{text-align:center;margin-bottom:56px}
+  .feature-pill .cap{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:var(--green-deep);background:#eaf3ed;padding:6px 18px;border-radius:999px;margin-bottom:18px;font-weight:700}
+  .feature-pill p{font-family:"Hiragino Sans",sans-serif;font-size:16px;color:#3a3a32;max-width:780px;margin:0 auto;line-height:2.1}
+  .feature-pill b{color:var(--green-deep);font-weight:700}
+
+  .flow-title{text-align:center;font-family:"Hiragino Mincho ProN",serif;font-size:22px;color:var(--green-deep);letter-spacing:.2em;margin-bottom:40px;font-weight:600}
+  .flow{display:flex;flex-direction:column;gap:12px;max-width:720px;margin:0 auto 48px;position:relative}
+  .flow::before{content:"";position:absolute;left:26px;top:30px;bottom:30px;width:2px;background:linear-gradient(180deg,var(--green-soft),transparent);z-index:0}
+  .step{display:grid;grid-template-columns:54px 1fr;gap:20px;align-items:start;background:#fff;border-radius:14px;padding:22px 26px;position:relative;z-index:1;box-shadow:0 2px 14px rgba(46,115,68,.07)}
+  .step .num{background:var(--green-deep);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Sans",sans-serif;font-weight:700;font-size:16px}
+  .step .ttl{font-family:"Hiragino Sans",sans-serif;font-size:16px;font-weight:700;color:var(--green-deep);margin-bottom:4px}
+  .step .desc{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:#444;line-height:1.85}
+
+  .info-table{background:#fff;border-radius:16px;padding:32px 36px;margin-top:48px;box-shadow:0 3px 18px rgba(46,115,68,.08)}
+  .info-row{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:14px 0;border-bottom:1px dashed #e5ecde}
+  .info-row:last-child{border-bottom:none}
+  .info-row .lb{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.2em;padding-top:2px}
+  .info-row .vl{font-family:"Hiragino Sans",sans-serif;font-size:14.5px;color:#333;line-height:1.85}
+  .info-row .vl b{color:var(--green-deep)}
+
+  /* ③ たより */
+  .tayori{background:linear-gradient(180deg,#fcf5e0 0%,#f2e2bf 100%)}
+  .ta-block{background:#fff;border-radius:20px;padding:44px 44px;margin-bottom:26px;box-shadow:0 6px 28px rgba(100,80,40,.1);border-left:6px solid var(--accent);position:relative}
+  .ta-block.pink{border-left-color:var(--rose);background:#fef7f5}
+  .ta-block .mark{position:absolute;top:-18px;left:32px;width:40px;height:40px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 3px 10px rgba(212,154,77,.3)}
+  .ta-block.pink .mark{background:var(--rose);box-shadow:0 3px 10px rgba(200,122,135,.3)}
+  .ta-block .cat{font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:var(--accent);margin-bottom:6px;font-weight:700}
+  .ta-block.pink .cat{color:var(--rose)}
+  .ta-block h3{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(22px,3vw,28px);color:var(--green-deep);letter-spacing:.12em;font-weight:700;margin-bottom:8px}
+  .ta-block .sub{font-family:"Hiragino Mincho ProN",serif;font-size:14px;color:#666;letter-spacing:.1em;margin-bottom:20px}
+  .ta-block .desc{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#3a3a32;line-height:2.05;margin-bottom:24px}
+  .ta-block .desc p{margin-bottom:.6em}
+  .ta-block .desc p:last-child{margin-bottom:0}
+
+  .ta-info{display:grid;grid-template-columns:140px 1fr;gap:16px 22px;margin-bottom:28px}
+  .ta-info .k{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.2em;padding-top:3px;border-left:3px solid var(--accent);padding-left:12px;line-height:1.4}
+  .ta-info .v{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:#333;line-height:1.9}
+  .ta-info .v b{color:var(--green-deep);font-weight:700}
+  .ta-info .v ul{list-style:none;padding:0;margin:0}
+  .ta-info .v li{padding-left:1em;position:relative;margin-bottom:4px}
+  .ta-info .v li::before{content:"・";position:absolute;left:0;color:var(--accent)}
+
+  .ta-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+  .ta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:14px 26px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:.15em;transition:background .25s}
+  .ta-btn:hover{background:#b8823a}
+  .ta-btn svg{width:16px;height:16px}
+  .ta-btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+  .ta-btn.outline:hover{background:var(--accent);color:#fff}
+  .ta-btn.pink{background:var(--rose)}
+  .ta-btn.pink:hover{background:#a85b67}
+  .ta-btn.pink.outline{background:#fff;color:var(--rose);border:2px solid var(--rose)}
+  .ta-btn.pink.outline:hover{background:var(--rose);color:#fff}
+
+  /* CTA */
+  .cta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:900px;margin:56px auto 0}
+  .cta-card{background:#fff;border-radius:16px;padding:32px 20px;text-align:center;box-shadow:0 4px 18px rgba(46,115,68,.1);transition:transform .25s}
+  .cta-card:hover{transform:translateY(-3px)}
+  .cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green-deep);color:#fff;padding:14px 28px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:14px;font-weight:700;letter-spacing:.15em;min-width:200px;transition:background .25s}
+  .cta-btn:hover{background:#245a36}
+  .cta-btn svg{width:16px;height:16px}
+  .cta-sub{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#666;margin-top:14px;line-height:1.7}
+  .cta-sub .tel{display:block;font-family:"Hiragino Mincho ProN",serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:.08em;margin-bottom:4px}
+
+  @media(max-width:760px){
+    section{padding:64px 20px}
+    .hero{padding:72px 20px 56px}
+    .hero-services{grid-template-columns:1fr;gap:14px}
+    .daichi-grid{grid-template-columns:1fr;gap:32px}
+    .daichi-img{max-width:260px;margin:0 auto;aspect-ratio:1/1}
+    .pdf-row{grid-template-columns:repeat(2,1fr)}
+    .wakaba-intro{padding:28px 24px}
+    .info-table{padding:24px 20px}
+    .info-row{grid-template-columns:1fr;gap:4px;padding:14px 0}
+    .ta-block{padding:34px 24px}
+    .ta-info{grid-template-columns:1fr;gap:4px 0}
+    .ta-info .k{border-left:none;border-bottom:2px solid var(--accent);padding:0 0 4px 0;margin-top:14px}
+    .ta-btns{flex-direction:column}
+    .ta-btn{justify-content:center;width:100%}
+    .cta-row{grid-template-columns:1fr;gap:16px}
+    .wave{height:40px}
+    .flow::before{left:22px}
+    .step{grid-template-columns:44px 1fr;gap:14px;padding:18px 20px}
+    .step .num{width:34px;height:34px;font-size:14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner">
+    <div class="kicker">CHILD &amp; FAMILY SUPPORT CENTER</div>
+    <h1>こども家庭サポートセンター</h1>
+    <p class="hero-desc">デンマーク牧場の豊かな自然の中で、<br>こどもたちとご家族の「育ち」と「暮らし」を支える<br>3つのサービスをご提供しています。</p>
+    <div class="hero-services">
+      <div class="hs"><div class="jp">だいち</div><span class="en">DAICHI</span><div class="cat">児童発達支援<br>早期療育</div></div>
+      <div class="hs"><div class="jp">わかば</div><span class="en">WAKABA</span><div class="cat">相談支援<br>計画作成</div></div>
+      <div class="hs"><div class="jp">たより</div><span class="en">TAYORI</span><div class="cat">児童家庭支援<br>センター</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 波: HERO(#CFF6DB) → だいち(#f0f7ea) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#CFF6DB"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#f0f7ea"/></svg>
+
+<!-- ① だいち -->
+<section class="daichi">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">SERVICE 01</span>
+      <h2>だいち</h2>
+      <span class="en">EARLY DEVELOPMENT SUPPORT</span>
+      <div style="font-family:'Hiragino Sans',sans-serif;font-size:13px;color:#555;letter-spacing:.2em;margin-top:12px">— 児童発達支援 / 早期療育 —</div>
+    </div>
+
+    <div class="daichi-grid">
+      <div class="daichi-img">
+        <img src="https://static.wixstatic.com/media/633c51_566222f6fd6b4639ada29e0d6a0f59a5~mv2.jpg/v1/fill/w_824,h_1148,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2024_3%E6%9C%88.jpg" alt="だいち">
+      </div>
+
+      <div class="features">
+        <div class="feat"><div class="n">1</div><div class="t"><b>専門職員による早期からの発達支援</b><span class="note">保育士・看護師・公認心理師・言語聴覚士・理学療法士・精神保健福祉士など</span></div></div>
+        <div class="feat"><div class="n">2</div><div class="t"><b>重症心理障害児の発達支援</b></div></div>
+        <div class="feat"><div class="n">3</div><div class="t"><b>敷地内にアニマルゾーン</b>（羊のひと群れ）</div></div>
+        <div class="feat"><div class="n">4</div><div class="t"><b>施設内調理の給食</b></div></div>
+        <div class="feat"><div class="n">5</div><div class="t"><b>デジリハ療育プログラム</b>を導入の予定</div></div>
+      </div>
+    </div>
+
+    <div class="pdf-row">
+      <a class="pdf-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_a2c72b8fa00d417caf9f8b25e8af12f7.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>R8年間療育目標</a>
+      <a class="pdf-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_86f88b546edc4754bd9b1ce770e952ab.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>保護者様アンケート</a>
+      <a class="pdf-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_3d627a8a1f7749f6a5f84a02f4df3b04.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>事業所自己評価</a>
+      <a class="pdf-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_787be0938688489e9aeac4f5cc64ffe3.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>提出自己評価</a>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-card">
+        <a class="cta-btn" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 8l8 5 8-5"/></svg>お問い合わせ・見学</a>
+        <div class="cta-sub">フォームよりお問い合わせ</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_4661b40464c14e70a8d72b972da3de7a.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>詳しい資料</a>
+        <div class="cta-sub">パンフレットをダウンロード</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="tel:0538247950"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>直通電話</a>
+        <div class="cta-sub"><span class="tel">0538-24-7950</span>9:00〜17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 波: だいち(#e1ecda) → わかば(#fffbf0) -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#fffbf0"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#e1ecda"/></svg>
+
+<!-- ② わかば -->
+<section class="wakaba">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">SERVICE 02</span>
+      <h2>わかば</h2>
+      <span class="en">CONSULTATION SUPPORT</span>
+      <div style="font-family:'Hiragino Sans',sans-serif;font-size:13px;color:#555;letter-spacing:.2em;margin-top:12px">— 相談支援事業 —</div>
+    </div>
+
+    <div class="wakaba-intro">
+      <span class="lbl">わかば事業内容</span>
+      <p>障害福祉サービスを利用する際に、<b>「サービス等利用計画」「障害児支援計画」</b>を作成いたします。また、サービス利用にまつわる相談に対応いたします。</p>
+      <p>まずは、お気軽にお問い合わせください。</p>
+    </div>
+
+    <div class="feature-pill">
+      <div class="cap">わかばの特徴</div>
+      <p>社会福祉士、精神保健福祉士、介護福祉士、介護支援専門員、医療的ケア児等コーディネーターなど<b>多種多様な資格と経験を持った相談員</b>が対応いたします。</p>
+    </div>
+
+    <div class="flow-title">ご利用までのながれ</div>
+
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div><div class="ttl">相談・受付</div><div class="desc">相談窓口にお電話ください。面談日を調整します。</div></div></div>
+      <div class="step"><div class="num">2</div><div><div class="ttl">わかば職員と面談</div><div class="desc">契約と面談を行います。生活状況などを聞き取ります。</div></div></div>
+      <div class="step"><div class="num">3</div><div><div class="ttl">サービス等利用計画(案)の作成</div><div class="desc">どのような生活をしたいのか、解決すべき課題を整理します。困っていることの解消や希望する生活を目指した計画を作成します。</div></div></div>
+      <div class="step"><div class="num">4</div><div><div class="ttl">支給決定</div><div class="desc">行政から支給決定通知、福祉サービス受給者証が届きます。</div></div></div>
+      <div class="step"><div class="num">5</div><div><div class="ttl">サービス等利用計画の作成</div></div></div>
+      <div class="step"><div class="num">6</div><div><div class="ttl">利用開始</div></div></div>
+      <div class="step"><div class="num">7</div><div><div class="ttl">モニタリング（定期）</div><div class="desc">来所・訪問相談については、お電話にてご予約をお願いいたします。必要に応じて、他機関（行政、基幹相談支援センター、児童家庭支援センター、医療機関など）へ紹介いたします。</div></div></div>
+    </div>
+
+    <div class="info-table">
+      <div class="info-row"><div class="lb">実 施 日</div><div class="vl">月曜日〜金曜日（平日）</div></div>
+      <div class="info-row"><div class="lb">営業時間</div><div class="vl">9：00 〜 17：00</div></div>
+      <div class="info-row"><div class="lb">実施地域</div><div class="vl">袋井市、磐田市、掛川市</div></div>
+      <div class="info-row"><div class="lb">相談支援専門員</div><div class="vl">社会福祉士、精神保健福祉士、介護福祉士、介護支援専門員、医療的ケア児等コーディネーター、強度行動障害支援者養成研修（実践研修）修了者</div></div>
+      <div class="info-row"><div class="lb">対 象 者</div><div class="vl">障害福祉サービス又は、障害児通所支援の利用を希望する方。（お子さんも対象です。）</div></div>
+      <div class="info-row"><div class="lb">住 所</div><div class="vl">〒437-1311　静岡県袋井市山崎5902-2</div></div>
+      <div class="info-row"><div class="lb">電話 / FAX</div><div class="vl"><b>TEL 0538-24-7952</b>　／　FAX 0538-23-0535</div></div>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-card">
+        <a class="cta-btn" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 8l8 5 8-5"/></svg>お問い合わせ・見学</a>
+        <div class="cta-sub">フォームよりお問い合わせ</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_27439463712c4b83b875f5b4247da439.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>詳しい資料</a>
+        <div class="cta-sub">パンフレットをダウンロード</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="tel:0538247952"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>直通電話</a>
+        <div class="cta-sub"><span class="tel">0538-24-7952</span>9:00〜17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fcf5e0"/></svg>
+
+<!-- ③ たより -->
+<section class="tayori">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge" style="background:#d49a4d">SERVICE 03</span>
+      <h2>たより</h2>
+      <span class="en">FAMILY SUPPORT CENTER</span>
+      <div style="font-family:'Hiragino Sans',sans-serif;font-size:13px;color:#555;letter-spacing:.2em;margin-top:12px">— 児童家庭支援センター —</div>
+    </div>
+
+    <!-- セクション1: 相談支援 -->
+    <div class="ta-block">
+      <div class="mark">💬</div>
+      <div class="cat">SECTION 01</div>
+      <h3>相談支援</h3>
+      <div class="sub">〜 家庭等からの子育て相談 〜</div>
+
+      <div class="desc">
+        <p>子育ては嬉しいことも大変なこともあります。<br>一人で抱え込む必要はありません。</p>
+        <p>私たちは、地域の皆さんにとって<br><b style="color:#d49a4d">「気軽に立ち寄れる相談先」</b>でありたいと思っています。</p>
+      </div>
+
+      <div class="ta-info">
+        <div class="k">対象エリア</div>
+        <div class="v"><b>6市1町</b><br>御前崎市、菊川市、掛川市、袋井市、磐田市、湖西市、森町</div>
+
+        <div class="k">対 象 者</div>
+        <div class="v">
+          <ul>
+            <li>対象エリア内のこどもとその家族</li>
+            <li>地域の関係機関（学校、医療機関など）</li>
+          </ul>
+        </div>
+
+        <div class="k">利用方法</div>
+        <div class="v">どなたでも<b>無料</b>で子育てや家庭の悩みの相談が可能です。<br>電話・来所・訪問相談など、状況に応じた対応を行います。</div>
+      </div>
+
+      <div class="ta-btns">
+        <a class="ta-btn" href="https://633c5193-11be-4fc5-a106-42bbbfa522db.usrfiles.com/ugd/633c51_de083de3bf4f422cba5e93f464d52337.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          相談支援の流れ（イラスト）
+        </a>
+      </div>
+    </div>
+
+    <!-- セクション2: 里親支援 -->
+    <div class="ta-block pink">
+      <div class="mark">🏠</div>
+      <div class="cat">SECTION 02</div>
+      <h3>里親支援</h3>
+      <div class="sub">〜 里親家庭に寄り添っていきます 〜</div>
+
+      <div class="desc">
+        <p><b style="color:#c87a87">里親制度とは</b><br>様々な事情により家庭では暮らせないこどもを、自分の家庭に迎え入れ、温かい愛情を持って養育する制度です。</p>
+      </div>
+
+      <div class="ta-btns">
+        <a class="ta-btn pink" href="https://www.pref.shizuoka.jp/kodomokyoiku/kodomokosodate/kodomohogo/1040713/1022261.html" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          里親になりませんか（静岡県HP）
+        </a>
+        <a class="ta-btn pink outline" href="https://633c5193-11be-4fc5-a106-42bbbfa522db.usrfiles.com/ugd/633c51_210679c7d1a34d51b28959288e9cfbcc.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          相談会チラシ（PDF）
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-row">
+      <div class="cta-card">
+        <a class="cta-btn" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 8l8 5 8-5"/></svg>お問い合わせ・見学</a>
+        <div class="cta-sub">フォームよりお問い合わせ</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_01b1dfc45fae4e7e83d24e48e8e15dca.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>詳しい資料</a>
+        <div class="cta-sub">パンフレットをダウンロード</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="tel:0538247951"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>直通電話</a>
+        <div class="cta-sub"><span class="tel">0538-24-7951</span>9:00〜17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="_resize.js"></script>
+</body>
+</html>
