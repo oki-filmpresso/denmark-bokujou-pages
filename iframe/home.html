@@ -231,7 +231,9 @@
     position:relative;overflow:hidden;
     margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
     padding:8px 0;
+    touch-action:pan-y;
   }
+  .auto-slider img{-webkit-user-drag:none;user-select:none;pointer-events:none}
   .auto-slider::before,.auto-slider::after{
     content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none
   }
@@ -376,13 +378,6 @@
     padding:14px 24px 22px 24px;
     clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);
     box-shadow:0 4px 10px rgba(85,141,96,.3)
-  }
-  /* 番号(右上) */
-  .cs-num{
-    position:absolute;top:36px;right:32px;
-    font-family:"Hiragino Sans",sans-serif;font-weight:300;
-    font-size:42px;color:transparent;-webkit-text-stroke:1.5px var(--green-deep);
-    line-height:1;letter-spacing:.04em;opacity:.7
   }
   /* 中央アイコン */
   .cs-icon{
@@ -679,8 +674,7 @@
 
     <div class="cs-grid">
       <a class="cs-card" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener">
-        <span class="cs-ribbon">お問い合わせ</span>
-        <span class="cs-num">01</span>
+        <span class="cs-ribbon">フォーム</span>
         <div class="cs-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
         </div>
@@ -690,8 +684,7 @@
       </a>
 
       <a class="cs-card" href="#footer" rel="noopener">
-        <span class="cs-ribbon">お問い合わせ</span>
-        <span class="cs-num">02</span>
+        <span class="cs-ribbon">電話</span>
         <div class="cs-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
@@ -701,8 +694,7 @@
       </a>
 
       <a class="cs-card" href="#" rel="noopener">
-        <span class="cs-ribbon">お問い合わせ</span>
-        <span class="cs-num">03</span>
+        <span class="cs-ribbon">資料</span>
         <div class="cs-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
         </div>
@@ -766,6 +758,7 @@
 
   // drag (pointer events: mouse + touch)
   states.forEach(s => {
+    s.slider.addEventListener('dragstart', e => e.preventDefault());
     s.slider.addEventListener('pointerdown', e => {
       if(e.button !== undefined && e.button !== 0) return;
       s.dragging = true;
