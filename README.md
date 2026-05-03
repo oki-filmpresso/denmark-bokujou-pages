@@ -18,7 +18,6 @@ GitHub Pages で公開、`main` ブランチに push すると自動配信され
 | `iframe/denmark-privacy.html` | 個人情報保護方針 | `iframe/denmark-privacy.html` |
 | `iframe/ibuki-rich.html` | 就労支援いぶき(リッチ版) | `iframe/ibuki-rich.html` |
 | `iframe/kohituji-renewal.html` | こひつじ診療所 | `iframe/kohituji-renewal.html` |
-| `iframe/denmark-lp-mockup.html` | LPモックアップ | `iframe/denmark-lp-mockup.html` |
 | `iframe/footer.html` | 全ページ共通フッター | `iframe/footer.html` |
 | `iframe/bokujo.html` | デンマーク牧場(放牧・体験) | `iframe/bokujo.html` |
 | `iframe/diakonia.html` | 特別養護老人ホーム ディアコニア | `iframe/diakonia.html` |
