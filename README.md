@@ -19,6 +19,7 @@ GitHub Pages で公開、`main` ブランチに push すると自動配信され
 | `iframe/ibuki-rich.html` | 就労支援いぶき(リッチ版) | `iframe/ibuki-rich.html` |
 | `iframe/kohituji-renewal.html` | こひつじ診療所 | `iframe/kohituji-renewal.html` |
 | `iframe/denmark-lp-mockup.html` | LPモックアップ | `iframe/denmark-lp-mockup.html` |
+| `iframe/footer.html` | 全ページ共通フッター | `iframe/footer.html` |
 
 ## 更新フロー
 
