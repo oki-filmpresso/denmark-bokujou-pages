@@ -208,7 +208,9 @@
     0%{transform:translateX(0)}
     100%{transform:translateX(calc(-50% - 10px))}
   }
-  .slide{flex-shrink:0;width:300px}
+  .slide{flex-shrink:0;width:300px;text-decoration:none;color:inherit;display:block;transition:transform .25s}
+  a.slide:hover{transform:translateY(-4px)}
+  a.slide:hover .slide-photo{box-shadow:0 12px 32px rgba(46,115,68,.2)}
   .slide-photo{
     width:100%;aspect-ratio:4/3;background:#fff;border-radius:14px;overflow:hidden;
     box-shadow:0 4px 22px rgba(46,115,68,.12);
@@ -425,20 +427,48 @@
 
   <div class="auto-slider">
     <div class="slider-track">
-      <!-- 6 slides — original -->
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 1</span></div><div class="slide-caption">障がい者支援<small>働く喜びと自立をサポート</small></div></div>
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 2</span></div><div class="slide-caption">児童福祉<small>子どもたちの健やかな成長を</small></div></div>
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 3</span></div><div class="slide-caption">高齢者福祉<small>やすらぎにつながる活動</small></div></div>
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 4</span></div><div class="slide-caption">就労支援<small>個性と能力を活かす仕事づくり</small></div></div>
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 5</span></div><div class="slide-caption">地域とのつながり<small>見学・交流イベント</small></div></div>
-      <div class="slide"><div class="slide-photo"><span class="ph-label">福祉シーン 6</span></div><div class="slide-caption">ふれあい<small>動物と人、人と人</small></div></div>
+      <!-- 5施設 — original -->
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/kodomo-support.html" target="_blank" rel="noopener">
+        <div class="slide-photo"><img src="photos/welfare/kodomo-support.jpg" alt="こども家庭サポートセンター" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">こども家庭サポートセンター</span></div>
+        <div class="slide-caption">こども家庭サポートセンター<small>だいち / わかば / たより</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/diakonia.html" target="_blank" rel="noopener">
+        <div class="slide-photo"><img src="photos/welfare/diakonia.jpg" alt="ディアコニア" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">ディアコニア</span></div>
+        <div class="slide-caption">ディアコニア<small>特別養護老人ホーム</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/kohituji-renewal.html" target="_blank" rel="noopener">
+        <div class="slide-photo"><img src="photos/welfare/kohituji.jpg" alt="こひつじ診療所" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">こひつじ診療所</span></div>
+        <div class="slide-caption">こひつじ<small>診療所</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/ibuki-rich.html" target="_blank" rel="noopener">
+        <div class="slide-photo"><img src="photos/welfare/ibuki.jpg" alt="いぶき" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">いぶき</span></div>
+        <div class="slide-caption">いぶき<small>就労支援</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/makibanoie.html" target="_blank" rel="noopener">
+        <div class="slide-photo"><img src="photos/welfare/makibanoie.jpg" alt="まきばの家" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">まきばの家</span></div>
+        <div class="slide-caption">まきばの家<small>児童養護施設</small></div>
+      </a>
       <!-- duplicated for seamless loop -->
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 1</span></div><div class="slide-caption">障がい者支援<small>働く喜びと自立をサポート</small></div></div>
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 2</span></div><div class="slide-caption">児童福祉<small>子どもたちの健やかな成長を</small></div></div>
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 3</span></div><div class="slide-caption">高齢者福祉<small>やすらぎにつながる活動</small></div></div>
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 4</span></div><div class="slide-caption">就労支援<small>個性と能力を活かす仕事づくり</small></div></div>
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 5</span></div><div class="slide-caption">地域とのつながり<small>見学・交流イベント</small></div></div>
-      <div class="slide" aria-hidden="true"><div class="slide-photo"><span class="ph-label">福祉シーン 6</span></div><div class="slide-caption">ふれあい<small>動物と人、人と人</small></div></div>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/kodomo-support.html" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="slide-photo"><img src="photos/welfare/kodomo-support.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">こども家庭サポートセンター</span></div>
+        <div class="slide-caption">こども家庭サポートセンター<small>だいち / わかば / たより</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/diakonia.html" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="slide-photo"><img src="photos/welfare/diakonia.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">ディアコニア</span></div>
+        <div class="slide-caption">ディアコニア<small>特別養護老人ホーム</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/kohituji-renewal.html" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="slide-photo"><img src="photos/welfare/kohituji.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">こひつじ診療所</span></div>
+        <div class="slide-caption">こひつじ<small>診療所</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/ibuki-rich.html" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="slide-photo"><img src="photos/welfare/ibuki.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">いぶき</span></div>
+        <div class="slide-caption">いぶき<small>就労支援</small></div>
+      </a>
+      <a class="slide" href="https://oki-filmpresso.github.io/denmark-bokujou-pages/iframe/makibanoie.html" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="slide-photo"><img src="photos/welfare/makibanoie.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.ph-label').style.display='block'"><span class="ph-label" style="display:none">まきばの家</span></div>
+        <div class="slide-caption">まきばの家<small>児童養護施設</small></div>
+      </a>
     </div>
   </div>
 
