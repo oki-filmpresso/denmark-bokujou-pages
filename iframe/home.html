@@ -598,8 +598,8 @@
   function update(){
     sliders.forEach(slider => {
       const rect = slider.getBoundingClientRect();
+      if(rect.width <= 0) return;
       const center = rect.left + rect.width / 2;
-      // peakRange: distance from center where scale is max → scale falls off linearly
       const peakRange = rect.width * 0.08;
       const fadeRange = rect.width * 0.42;
       const slides = slider.querySelectorAll('.slide');
@@ -619,8 +619,10 @@
     });
     raf = requestAnimationFrame(update);
   }
-  // start
-  raf = requestAnimationFrame(update);
+  // initial sync apply (in case page starts hidden — rAF won't fire then)
+  update();
+  // fallback interval for environments where rAF is throttled (parent iframe hidden etc.)
+  setInterval(() => { if(document.hidden) update(); }, 100);
   // pause when iframe not visible
   document.addEventListener('visibilitychange', () => {
     if(document.hidden){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
