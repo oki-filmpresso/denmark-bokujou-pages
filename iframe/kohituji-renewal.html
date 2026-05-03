@@ -15,7 +15,6 @@
     --sand:#f0e3c3;
     --accent:#d49a4d;
     --rose:#c87a87;
-    --sky:#7eb6d6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
@@ -30,9 +29,7 @@
   /* HERO */
   .hero{background:#CFF6DB;text-align:center;padding:100px 24px 80px}
   .hero .kicker{font-family:"Hiragino Sans",sans-serif;font-size:12px;letter-spacing:.5em;color:var(--green);margin-bottom:16px}
-  .hero h1{font-size:clamp(32px,5.6vw,58px);color:var(--green-deep);letter-spacing:.14em;font-weight:600;line-height:1.3;margin-bottom:14px}
-  .hero .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(16px,2.2vw,22px);color:var(--green-deep);letter-spacing:.18em;margin-bottom:32px}
-  .hero-desc{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#3a3a32;max-width:680px;margin:0 auto 40px;line-height:2.1}
+  .hero h1{font-size:clamp(32px,5.6vw,58px);color:var(--green-deep);letter-spacing:.14em;font-weight:600;line-height:1.3;margin-bottom:40px}
   .hero-depts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:780px;margin:0 auto}
   .hd{background:#fff;border-radius:14px;padding:18px 12px;box-shadow:0 4px 18px rgba(46,115,68,.1);border-top:3px solid var(--green-deep)}
   .hd .jp{font-family:"Hiragino Mincho ProN",serif;font-size:16px;color:var(--green-deep);font-weight:700;letter-spacing:.12em;line-height:1.4}
@@ -45,49 +42,51 @@
   .svc-head .en{font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.5em;color:var(--green);margin-top:10px;display:block}
   .svc-head .ja-sub{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#555;letter-spacing:.2em;margin-top:12px}
 
-  /* ① 紹介 */
+  /* ① コンセプト */
   .intro{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%)}
-  .intro-card{
-    background:#fff;border-radius:20px;padding:44px 48px;
-    box-shadow:0 6px 28px rgba(46,115,68,.1);
-    border-left:6px solid var(--green-deep)
-  }
+  .intro-card{background:#fff;border-radius:20px;padding:44px 48px;box-shadow:0 6px 28px rgba(46,115,68,.1);border-left:6px solid var(--green-deep)}
   .intro-card .lbl{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--green);letter-spacing:.3em;font-weight:700;margin-bottom:14px;display:block}
-  .intro-card .quote{
-    font-family:"Hiragino Mincho ProN",serif;font-size:clamp(20px,2.8vw,26px);
-    color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:24px;line-height:1.6
-  }
+  .intro-card .quote{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(20px,2.8vw,26px);color:var(--green-deep);letter-spacing:.1em;font-weight:700;margin-bottom:24px;line-height:1.6}
   .intro-card p{font-family:"Hiragino Sans",sans-serif;font-size:15.5px;color:#333;line-height:2.05}
   .intro-card p b{color:var(--green-deep);font-weight:700}
   .pdf-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;max-width:680px;margin-left:auto;margin-right:auto}
-  .pdf-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border:1px solid var(--green-soft);border-radius:999px;padding:14px 18px;font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.1em;transition:all .25s;cursor:pointer}
+  .pdf-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border:1px solid var(--green-soft);border-radius:999px;padding:14px 18px;font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.1em;transition:all .25s}
   .pdf-btn:hover{background:var(--green-deep);color:#fff;border-color:var(--green-deep)}
   .pdf-btn svg{width:16px;height:16px;flex-shrink:0}
 
-  /* ② 診療科目 */
+  /* ② 院長挨拶 */
+  .director{background:linear-gradient(180deg,#fdf8ec 0%,#f7eed7 100%)}
+  .director-card{background:#fff;border-radius:20px;padding:48px;box-shadow:0 6px 28px rgba(100,80,40,.1);border-left:6px solid var(--accent)}
+  .director-grid{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start}
+  .director-photo{
+    width:240px;height:240px;border-radius:50%;overflow:hidden;
+    background:#f0e3c3;box-shadow:0 6px 22px rgba(100,80,40,.18);
+    border:4px solid #fff
+  }
+  .director-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .director-name-block{margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid #f3e8c8}
+  .director-role{font-family:"Hiragino Sans",sans-serif;font-size:12px;letter-spacing:.3em;color:var(--accent);font-weight:700;margin-bottom:8px}
+  .director-name{font-family:"Hiragino Mincho ProN",serif;font-size:32px;color:var(--green-deep);font-weight:700;letter-spacing:.18em;line-height:1.3;margin-bottom:6px}
+  .director-license{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#666;letter-spacing:.15em}
+  .director-message p{font-family:"Hiragino Sans",sans-serif;font-size:14.5px;color:#3a3a32;line-height:2.1;margin-bottom:1em}
+  .director-message p:last-child{margin-bottom:0}
+  .director-message b{color:var(--green-deep);font-weight:700}
+
+  /* ③ 診療科目 */
   .depts{background:var(--cream)}
   .depts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .dept{
-    background:#fff;border-radius:16px;padding:30px 22px;text-align:center;
-    box-shadow:0 4px 18px rgba(46,115,68,.08);transition:transform .25s
-  }
+  .dept{background:#fff;border-radius:16px;padding:30px 22px;text-align:center;box-shadow:0 4px 18px rgba(46,115,68,.08);transition:transform .25s}
   .dept:hover{transform:translateY(-4px)}
-  .dept .emoji{
-    width:64px;height:64px;border-radius:50%;background:#eaf3ed;
-    display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px
-  }
+  .dept .emoji{width:64px;height:64px;border-radius:50%;background:#eaf3ed;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px}
   .dept .n{font-family:"Hiragino Sans",sans-serif;font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.3em;margin-bottom:6px}
   .dept .ttl{font-family:"Hiragino Mincho ProN",serif;font-size:18px;color:var(--green-deep);font-weight:700;letter-spacing:.1em;margin-bottom:8px}
   .dept .desc{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#444;line-height:1.85;text-align:left}
 
-  /* ③ 診療時間 */
+  /* ④ 診療時間 */
   .hours{background:linear-gradient(180deg,#fcf5e0 0%,#f2e2bf 100%)}
   .hours-card{background:#fff;border-radius:20px;padding:40px;box-shadow:0 6px 28px rgba(100,80,40,.1);border-left:6px solid var(--accent)}
   .hours-table{width:100%;border-collapse:collapse;margin-bottom:24px}
-  .hours-table th,.hours-table td{
-    font-family:"Hiragino Sans",sans-serif;font-size:14px;
-    padding:14px 8px;text-align:center;border-bottom:1px solid #eee;letter-spacing:.05em
-  }
+  .hours-table th,.hours-table td{font-family:"Hiragino Sans",sans-serif;font-size:14px;padding:14px 8px;text-align:center;border-bottom:1px solid #eee;letter-spacing:.05em}
   .hours-table thead th{background:var(--green-deep);color:#fff;font-weight:700;border-bottom:none;letter-spacing:.15em}
   .hours-table thead th:first-child{border-radius:8px 0 0 0}
   .hours-table thead th:last-child{border-radius:0 8px 0 0}
@@ -101,28 +100,19 @@
   .legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:18px 0 24px}
   .legend span{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#555;display:flex;align-items:center;gap:6px}
   .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-
   .notes{background:#fdf8eb;border-radius:12px;padding:20px 24px;margin-top:24px;border-left:3px solid var(--accent)}
   .notes p{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#555;line-height:1.85;margin-bottom:.4em}
   .notes p:last-child{margin-bottom:0}
   .notes b{color:var(--green-deep);font-weight:700}
 
-  /* ④ 施設情報 */
+  /* ⑤ 施設情報 */
   .facility{background:var(--cream)}
-  .facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
-  .facility-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 18px rgba(46,115,68,.08)}
-  .facility-card h3{font-family:"Hiragino Mincho ProN",serif;font-size:18px;color:var(--green-deep);letter-spacing:.15em;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #eaf3ed}
-  .floor-img{width:100%;aspect-ratio:4/3;background:#eee;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Sans",sans-serif;color:#888;font-size:13px}
-  .floor-list{font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#444;line-height:2;margin-top:12px}
-  .floor-list span{display:inline-block;background:#eaf3ed;color:var(--green-deep);padding:4px 12px;border-radius:999px;margin:2px 4px 2px 0;font-size:12px;font-weight:700}
-
   .info-table{background:#fff;border-radius:16px;padding:32px 36px;box-shadow:0 3px 18px rgba(46,115,68,.08)}
   .info-row{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:14px 0;border-bottom:1px dashed #e5ecde}
   .info-row:last-child{border-bottom:none}
   .info-row .lb{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.2em;padding-top:2px}
   .info-row .vl{font-family:"Hiragino Sans",sans-serif;font-size:14.5px;color:#333;line-height:1.85}
   .info-row .vl b{color:var(--green-deep);font-weight:700}
-  .info-row .tel-big{display:block;font-family:"Hiragino Mincho ProN",serif;font-size:24px;color:var(--green-deep);font-weight:700;letter-spacing:.05em;margin-top:4px}
 
   /* CTA */
   .cta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:900px;margin:0 auto}
@@ -141,14 +131,18 @@
     .hd{padding:14px 10px}
     .intro-card{padding:32px 24px}
     .pdf-row{grid-template-columns:1fr}
-    .depts-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .director-card{padding:32px 24px}
+    .director-grid{grid-template-columns:1fr;gap:24px;justify-items:center;text-align:center}
+    .director-photo{width:180px;height:180px}
+    .director-name-block{text-align:center;border-bottom-color:#f3e8c8}
+    .director-name{font-size:26px}
+    .director-message p{text-align:left}
+    .depts-grid{grid-template-columns:1fr;gap:14px}
     .dept{padding:24px 16px}
     .hours-card{padding:24px 16px}
     .hours-table th,.hours-table td{font-size:12px;padding:10px 4px;letter-spacing:0}
     .hours-table tbody th{width:auto;font-size:12px}
     .hours-time{font-size:12px}
-    .facility-grid{grid-template-columns:1fr;gap:20px}
-    .facility-card{padding:24px}
     .info-table{padding:24px 20px}
     .info-row{grid-template-columns:1fr;gap:4px;padding:14px 0}
     .cta-row{grid-template-columns:1fr;gap:16px}
@@ -163,9 +157,6 @@
   <div class="inner">
     <div class="kicker">PSYCHIATRIC CLINIC</div>
     <h1>こひつじ診療所</h1>
-    <div class="lead">小さくても、よき「ひとむれ」に。</div>
-    <p class="hero-desc">児童精神科、発達障がい者にも対応する精神科・心療内科の<br>外来診療を通して、地域に貢献する診療所です。</p>
-
     <div class="hero-depts">
       <div class="hd"><div class="jp">精神科</div><span class="en">PSYCHIATRY</span></div>
       <div class="hd"><div class="jp">児童精神科</div><span class="en">CHILD PSYCH.</span></div>
@@ -177,15 +168,9 @@
 
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#CFF6DB"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#f0f7ea"/></svg>
 
-<!-- ① 紹介 -->
+<!-- ① コンセプト -->
 <section class="intro">
   <div class="inner">
-    <div class="svc-head">
-      <span class="badge">ABOUT</span>
-      <h2>こひつじ診療所について</h2>
-      <span class="en">CONCEPT &amp; SERVICE</span>
-    </div>
-
     <div class="intro-card">
       <span class="lbl">CONCEPT</span>
       <div class="quote">小さくても、よき「ひとむれ」に。</div>
@@ -208,7 +193,41 @@
 
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#e1ecda"/></svg>
 
-<!-- ② 診療科目 -->
+<!-- ② 院長挨拶 -->
+<section class="director">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge" style="background:var(--accent)">DIRECTOR</span>
+      <h2>院長挨拶</h2>
+      <span class="en">MESSAGE FROM DIRECTOR</span>
+    </div>
+
+    <div class="director-card">
+      <div class="director-grid">
+        <div class="director-photo">
+          <img src="https://static.wixstatic.com/media/633c51_a766e28e1f9540efbbf206a40e19c73a~mv2.png" alt="武井陽一 院長">
+        </div>
+        <div class="director-info">
+          <div class="director-name-block">
+            <div class="director-role">こひつじ診療所 院長</div>
+            <div class="director-name">武井 陽一</div>
+            <div class="director-license">精神保健指定医</div>
+          </div>
+          <div class="director-message">
+            <p>聖隷三方原病院で20年間、子どもからお年寄りまで多くの方々の診療に携わらせて頂きました。</p>
+            <p>2007年7月より、デンマーク牧場福祉会において、特別養護老人ホーム「ディアコニア」、児童養護施設「まきばの家」に続いて、精神科の診療所が開設され、赴任しました。看護師、精神保健福祉士、公認心理士、ポルトガル語通訳たちと共に診察させて頂き、<b>19年目</b>を迎えました。</p>
+            <p>豊かな自然にいやされ、酪農、園芸などの作業ができる環境の中で、子どもや発達障がい者にも対応できる、<b>精神科・心療内科の診療所として、地域に密着し、特色のある福祉医療活動</b>を、具体的に、福祉、教育、医療の連携の可能性を、養護が必要な子どもや、発達障がいの方々を中心に見据えながら模索、実践していきたいと願っています。</p>
+            <p>ストレスなどで不眠、意欲低下などの抑うつ状態などになられた成人一般の皆様や、統合失調症などの精神症状を抱えられ、豊かな自然環境にいやされながら通院を希望される方も、お問い合わせの上、ご受診下さい。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f7eed7"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fffbf0"/></svg>
+
+<!-- ③ 診療科目 -->
 <section class="depts">
   <div class="inner">
     <div class="svc-head">
@@ -248,7 +267,7 @@
 
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fcf5e0"/></svg>
 
-<!-- ③ 診療時間 -->
+<!-- ④ 診療時間 -->
 <section class="hours">
   <div class="inner">
     <div class="svc-head">
@@ -303,28 +322,13 @@
 
 <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f2e2bf"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fffbf0"/></svg>
 
-<!-- ④ 施設情報 -->
+<!-- ⑤ 施設情報 -->
 <section class="facility">
   <div class="inner">
     <div class="svc-head">
       <span class="badge">FACILITY</span>
       <h2>施設情報</h2>
-      <span class="en">FLOOR PLAN &amp; ACCESS</span>
-    </div>
-
-    <div class="facility-grid">
-      <div class="facility-card">
-        <h3>院内のご案内</h3>
-        <div class="floor-img">［ こひつじ診療所 平面図 ］</div>
-        <div class="floor-list">
-          <span>診察室</span><span>心理室</span><span>待合室</span><span>デイケアルーム</span><span>相談室</span><span>受付</span>
-        </div>
-      </div>
-      <div class="facility-card">
-        <h3>明るく落ち着いた診察室</h3>
-        <div class="floor-img">［ 診察室の写真 ］</div>
-        <p style="font-family:'Hiragino Sans',sans-serif;font-size:13.5px;color:#555;line-height:1.95;margin-top:14px">大きな窓から自然光が差し込む、開放的な空間です。お子さまから大人まで、安心して受診いただける環境を整えています。</p>
-      </div>
+      <span class="en">ACCESS &amp; CONTACT</span>
     </div>
 
     <div class="info-table">
@@ -338,10 +342,7 @@
       </div>
       <div class="info-row">
         <div class="lb">電話 / FAX</div>
-        <div class="vl">
-          <b>TEL.0538-23-0660</b>　／　FAX.0538-23-0661
-          <span class="tel-big">0538-23-0660</span>
-        </div>
+        <div class="vl"><b>TEL.0538-23-0660</b>　／　FAX.0538-23-0661</div>
       </div>
       <div class="info-row">
         <div class="lb">休診日</div>
