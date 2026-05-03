@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>児童養護施設 まきばの家 - デンマーク牧場福祉会</title>
+<style>
+  :root{
+    --ink:#343830;
+    --green-deep:#2e7344;
+    --green:#558d60;
+    --green-soft:#9bbe98;
+    --green-bright:#7aa858;
+    --cream:#fffbf0;
+    --cream-warm:#fbf2dd;
+    --sand:#f0e3c3;
+    --accent:#d49a4d;
+    --rose:#e88aa0;
+    --sky:#7eb6d6;
+    --pink:#f4c4d0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95;letter-spacing:.05em}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  section{position:relative;padding:96px 24px;overflow:hidden}
+  .inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+  .wave{display:block;width:100%;height:64px}
+
+  /* HERO */
+  .hero{background:#CFF6DB;text-align:center;padding:100px 24px 80px}
+  .hero .kicker{font-family:"Hiragino Sans",sans-serif;font-size:12px;letter-spacing:.5em;color:var(--green);margin-bottom:16px}
+  .hero h1{font-size:clamp(32px,5.6vw,58px);color:var(--green-deep);letter-spacing:.14em;font-weight:600;line-height:1.3;margin-bottom:14px}
+  .hero .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(16px,2.2vw,22px);color:var(--green-deep);letter-spacing:.18em;margin-bottom:32px}
+  .hero-desc{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#3a3a32;max-width:680px;margin:0 auto 40px;line-height:2.1}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:780px;margin:0 auto}
+  .hero-tags span{background:#fff;color:var(--green-deep);padding:8px 18px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;box-shadow:0 4px 12px rgba(46,115,68,.1)}
+
+  /* SVC 見出し */
+  .svc-head{text-align:center;margin-bottom:48px}
+  .svc-head .badge{display:inline-block;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.4em;color:#fff;background:var(--green-deep);padding:6px 18px;border-radius:999px;margin-bottom:14px}
+  .svc-head h2{font-size:clamp(28px,4.2vw,40px);color:var(--green-deep);letter-spacing:.12em;font-weight:600;line-height:1.4}
+  .svc-head .en{font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.5em;color:var(--green);margin-top:10px;display:block}
+  .svc-head .ja-sub{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#555;letter-spacing:.2em;margin-top:12px}
+
+  /* ① 施設理念 */
+  .philosophy{background:linear-gradient(180deg,#f0f7ea 0%,#e1ecda 100%)}
+  .ph-card{background:#fff;border-radius:20px;padding:48px;box-shadow:0 6px 28px rgba(46,115,68,.1);border-left:6px solid var(--green-deep)}
+  .ph-card .lbl{font-family:"Hiragino Sans",sans-serif;font-size:12px;color:var(--green);letter-spacing:.3em;font-weight:700;margin-bottom:14px;display:block}
+  .ph-card .quote{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(22px,3vw,30px);color:var(--green-deep);letter-spacing:.12em;font-weight:700;margin-bottom:28px;line-height:1.6;text-align:center;padding:18px 0;border-top:1px solid #e5ecde;border-bottom:1px solid #e5ecde}
+  .ph-card p{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#333;line-height:2.1;margin-bottom:.8em}
+  .ph-card p:last-child{margin-bottom:0}
+  .ph-card b{color:var(--green-deep);font-weight:700}
+
+  /* ② 生活 */
+  .life{background:var(--cream)}
+  .life-intro{background:#fff;border-radius:16px;padding:32px 36px;margin-bottom:32px;box-shadow:0 4px 18px rgba(46,115,68,.08);text-align:center}
+  .life-intro p{font-family:"Hiragino Sans",sans-serif;font-size:15px;color:#3a3a32;line-height:2;margin-bottom:.6em}
+  .life-intro p:last-child{margin-bottom:0}
+  .life-intro b{color:var(--green-deep);font-weight:700}
+  .life-intro .badge{display:inline-block;background:var(--accent);color:#fff;font-family:"Hiragino Sans",sans-serif;font-size:11px;letter-spacing:.3em;padding:4px 14px;border-radius:999px;margin-bottom:12px;font-weight:700}
+
+  .life-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .lc{background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 18px rgba(46,115,68,.08);border-top:4px solid var(--green-deep);transition:transform .25s}
+  .lc:hover{transform:translateY(-4px)}
+  .lc:nth-child(2){border-top-color:var(--accent)}
+  .lc:nth-child(3){border-top-color:var(--rose)}
+  .lc:nth-child(4){border-top-color:var(--sky)}
+  .lc-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .lc-icon{width:52px;height:52px;border-radius:50%;background:#eaf3ed;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+  .lc:nth-child(2) .lc-icon{background:#fdf0e0}
+  .lc:nth-child(3) .lc-icon{background:#fceaee}
+  .lc:nth-child(4) .lc-icon{background:#e6f0f7}
+  .lc h3{font-family:"Hiragino Mincho ProN",serif;font-size:20px;color:var(--green-deep);letter-spacing:.1em;font-weight:700}
+  .lc p{font-family:"Hiragino Sans",sans-serif;font-size:14px;color:#3a3a32;line-height:1.95}
+  .lc p b{color:var(--green-deep);font-weight:700}
+
+  .photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .photo-row .ph{aspect-ratio:4/3;background:#eaf3ed;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Sans",sans-serif;font-size:12px;color:#999;letter-spacing:.15em;border:2px dashed #c5d6ca}
+
+  /* ③ 専門スタッフ図 */
+  .staff{background:linear-gradient(180deg,#fcf5e0 0%,#f2e2bf 100%)}
+  .staff-image-wrap{
+    background:#fff;border-radius:24px;padding:36px;
+    box-shadow:0 6px 28px rgba(100,80,40,.1);
+    text-align:center
+  }
+  .staff-image-wrap img{
+    width:100%;max-width:780px;height:auto;margin:0 auto;display:block
+  }
+  .staff-note{margin-top:28px;text-align:center;font-family:"Hiragino Sans",sans-serif;font-size:13.5px;color:#666;line-height:1.95;padding:18px 24px;background:#fdf8eb;border-radius:12px;border-left:3px solid var(--accent);max-width:780px;margin-left:auto;margin-right:auto}
+  .staff-note b{color:var(--green-deep);font-weight:700}
+
+  /* ④ 施設情報 */
+  .facility{background:var(--cream)}
+  .info-table{background:#fff;border-radius:16px;padding:32px 36px;box-shadow:0 3px 18px rgba(46,115,68,.08)}
+  .info-row{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:14px 0;border-bottom:1px dashed #e5ecde}
+  .info-row:last-child{border-bottom:none}
+  .info-row .lb{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:var(--green-deep);font-weight:700;letter-spacing:.2em;padding-top:2px}
+  .info-row .vl{font-family:"Hiragino Sans",sans-serif;font-size:14.5px;color:#333;line-height:1.85}
+  .info-row .vl b{color:var(--green-deep);font-weight:700}
+
+  /* CTA */
+  .cta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:900px;margin:56px auto 0}
+  .cta-card{background:#fff;border-radius:16px;padding:32px 20px;text-align:center;box-shadow:0 4px 18px rgba(46,115,68,.1);transition:transform .25s}
+  .cta-card:hover{transform:translateY(-3px)}
+  .cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green-deep);color:#fff;padding:14px 28px;border-radius:999px;font-family:"Hiragino Sans",sans-serif;font-size:14px;font-weight:700;letter-spacing:.15em;min-width:200px;transition:background .25s}
+  .cta-btn:hover{background:#245a36}
+  .cta-sub{font-family:"Hiragino Sans",sans-serif;font-size:13px;color:#666;margin-top:14px;line-height:1.7}
+  .cta-sub .tel{display:block;font-family:"Hiragino Mincho ProN",serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:.08em;margin-bottom:4px}
+
+  @media(max-width:760px){
+    section{padding:64px 20px}
+    .hero{padding:72px 20px 56px}
+    .hero-tags{justify-content:flex-start}
+    .ph-card,.life-intro,.lc,.staff-image-wrap,.info-table{padding:28px 22px}
+    .life-grid{grid-template-columns:1fr;gap:16px}
+    .photo-row{grid-template-columns:1fr 1fr;gap:10px}
+    .info-row{grid-template-columns:1fr;gap:4px;padding:14px 0}
+    .cta-row{grid-template-columns:1fr;gap:16px}
+    .wave{height:40px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner">
+    <div class="kicker">CHILDREN'S HOME</div>
+    <h1>まきばの家</h1>
+    <div class="lead">児童養護施設</div>
+    <p class="hero-desc">デンマーク牧場の豊かな自然のなかで、こども一人ひとりが安心して<br>自分らしく成長できる暮らしの場を目指しています。</p>
+    <div class="hero-tags">
+      <span>👧 入所定員 25名</span><span>🏡 2〜18歳（必要に応じ20歳）</span><span>🌳 自然との暮らし</span><span>🤝 こどもの権利擁護</span>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#CFF6DB"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#f0f7ea"/></svg>
+
+<!-- ① 施設理念 -->
+<section class="philosophy">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">PHILOSOPHY</span>
+      <h2>施設理念</h2>
+      <span class="en">OUR PHILOSOPHY</span>
+    </div>
+
+    <div class="ph-card">
+      <span class="lbl">SHARING JOY &amp; SORROW</span>
+      <div class="quote">『 喜びや悲しみを分かち合う 』</div>
+      <p>児童養護施設まきばの家は、こども一人ひとりが安心して自分らしく成長できる暮らしの場を目指しています。併設するデンマーク牧場の豊かな自然環境の中で、動物や四季の移ろいに触れながら、<b>こころとからだの育ち</b>を大切にした生活を送っています。</p>
+      <p>私たちは、すべてのこどもが尊重される存在であるという考えのもと、<b>「こどもの権利擁護」</b>を施設運営の中心に据え、意見や思いに耳を傾ける関わりを大切にしています。</p>
+      <p>まきばの家が目指すのは、「安心できる生活」を基盤に、<b>「よく食べ、よく遊び（学び）、よく寝る」</b>という健やかな日常を積み重ねること。そして、個性や考え方の違いを認め合いながら、他者と共に生きる力を育み、好奇心や興味を広げていけるこどもを育てることです。</p>
+      <p>自然と人との温かな関わりの中で、こどもたちが未来への一歩を自信を持って踏み出せるように<b>伴走（サポート）</b>しています。</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,0 480,64 720,40 C960,16 1200,56 1440,32 L1440,0 L0,0 Z" fill="#e1ecda"/></svg>
+
+<!-- ② まきばの家の生活 -->
+<section class="life">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">LIFE</span>
+      <h2>まきばの家の生活</h2>
+      <span class="en">DAILY LIFE</span>
+    </div>
+
+    <div class="life-intro">
+      <div class="badge">入所定員 25名</div>
+      <p>児童養護施設まきばの家では、<b>2歳〜18歳（必要に応じて20歳）</b>までのこどもたちが生活しており、地域の学校やこども園に通っています。</p>
+    </div>
+
+    <div class="life-grid">
+      <div class="lc">
+        <div class="lc-head"><div class="lc-icon">📋</div><h3>入所について</h3></div>
+        <p>居住地を管轄する<b>児童相談所</b>が入所相談を行います。</p>
+      </div>
+      <div class="lc">
+        <div class="lc-head"><div class="lc-icon">🍚</div><h3>食 事</h3></div>
+        <p><b>「生きることは食べること」</b>を合言葉に、こどもの意見を聞きながら、食育課の職員が中心となり栄養満点の食事を提供しています。<br>もちろん牧場の乳製品も食卓に並びます。新鮮で安全な食材にこだわっています。</p>
+      </div>
+      <div class="lc">
+        <div class="lc-head"><div class="lc-icon">🎨</div><h3>遊 び</h3></div>
+        <p>こどもの発達に応じた遊びがあります。スポーツ、おもちゃ、読書、メディアなど、様々な遊びの中から<b>自分で選択する経験</b>を積み重ねます。</p>
+      </div>
+      <div class="lc">
+        <div class="lc-head"><div class="lc-icon">🛏️</div><h3>住まい</h3></div>
+        <p>小学生以上は、<b>プライバシーが守られる居室</b>があります。静かに過ごしたいときには居室で、みんなと一緒に過ごしたいときにはリビングや園庭で生活します。</p>
+      </div>
+    </div>
+
+    <div class="photo-row">
+      <div class="ph">［ 写真 1 ］</div>
+      <div class="ph">［ 写真 2 ］</div>
+      <div class="ph">［ 写真 3 ］</div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fcf5e0"/></svg>
+
+<!-- ③ 専門スタッフ -->
+<section class="staff">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge" style="background:var(--accent)">OUR TEAM</span>
+      <h2>専門スタッフが連携して、こどもたちを支えています</h2>
+      <span class="en">PROFESSIONAL TEAM</span>
+    </div>
+
+    <div class="staff-image-wrap">
+      <img src="https://static.wixstatic.com/media/633c51_9a80bd94c2b348938eab042ef5d3b42e~mv2.png" alt="専門スタッフが連携してこどもたちを支えています">
+    </div>
+
+    <div class="staff-note">それぞれの専門性を持った職員が連携し、<b>こども一人ひとりの成長と暮らし</b>を多面的に支えています。</div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" style="background:#f2e2bf"><path d="M0,32 C240,64 480,0 720,24 C960,48 1200,8 1440,32 L1440,64 L0,64 Z" fill="#fffbf0"/></svg>
+
+<!-- ④ 施設情報 -->
+<section class="facility">
+  <div class="inner">
+    <div class="svc-head">
+      <span class="badge">FACILITY</span>
+      <h2>施設情報</h2>
+      <span class="en">ACCESS &amp; CONTACT</span>
+    </div>
+
+    <div class="info-table">
+      <div class="info-row">
+        <div class="lb">施設種別</div>
+        <div class="vl">児童養護施設</div>
+      </div>
+      <div class="info-row">
+        <div class="lb">定 員</div>
+        <div class="vl"><b>25名</b>（2歳〜18歳、必要に応じて20歳まで）</div>
+      </div>
+      <div class="info-row">
+        <div class="lb">住 所</div>
+        <div class="vl">〒437-1311　静岡県袋井市山崎 5902番地の169</div>
+      </div>
+      <div class="info-row">
+        <div class="lb">電話 / FAX</div>
+        <div class="vl"><b>TEL.0538-23-0770</b>　／　FAX.0538-23-0771</div>
+      </div>
+      <div class="info-row">
+        <div class="lb">入所相談</div>
+        <div class="vl">居住地を管轄する児童相談所までご相談ください。</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-card">
+        <a class="cta-btn" href="https://forms.gle/15bPwYBtTCvTBvta9" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 8l8 5 8-5"/></svg>
+          お問い合わせ・見学
+        </a>
+        <div class="cta-sub">フォームよりお問い合わせ</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="https://www.denmark-bokujyo.com/_files/ugd/633c51_22039c97c787463daa2d5f1901904cb9.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          詳しい資料
+        </a>
+        <div class="cta-sub">パンフレットをダウンロード</div>
+      </div>
+      <div class="cta-card">
+        <a class="cta-btn" href="tel:0538230770">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          直通電話
+        </a>
+        <div class="cta-sub"><span class="tel">0538-23-0770</span>9:00〜17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="_resize.js"></script>
+</body>
+</html>

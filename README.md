@@ -23,6 +23,7 @@ GitHub Pages で公開、`main` ブランチに push すると自動配信され
 | `iframe/bokujo.html` | デンマーク牧場(放牧・体験) | `iframe/bokujo.html` |
 | `iframe/diakonia.html` | 特別養護老人ホーム ディアコニア | `iframe/diakonia.html` |
 | `iframe/kodomo-support.html` | こども家庭サポートセンター(だいち/わかば/たより) | `iframe/kodomo-support.html` |
+| `iframe/makibanoie.html` | 児童養護施設 まきばの家 | `iframe/makibanoie.html` |
 
 ## 更新フロー
 
